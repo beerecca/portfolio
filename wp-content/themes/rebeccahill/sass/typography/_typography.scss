@@ -1,0 +1,16 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-style: normal;
+	font-weight: 400;
+	font-family: $font__main;
+	@include font-size(1.6);
+	line-height: $font__line-height-body;
+}
+
+@import "headers";
+
+@import "copy";
