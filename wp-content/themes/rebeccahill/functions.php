@@ -162,3 +162,13 @@ function codex_custom_init() {
 add_action( 'init', 'codex_custom_init' );
 
 
+/**
+ * Remove comment form allowed tags info
+ */
+
+add_filter( 'comment_form_defaults', 'remove_comment_form_allowed_tags' );
+function remove_comment_form_allowed_tags( $defaults ) {
+	$defaults['comment_notes_after'] = '';
+	return $defaults;
+}
+

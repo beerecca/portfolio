@@ -50,7 +50,7 @@ function rebeccahill_post_nav() {
 	?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'rebeccahill' ); ?></h1>
-		<div class="nav-links">
+		<div class="nav-links entry-meta">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'rebeccahill' ) );
 				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'rebeccahill' ) );
@@ -80,7 +80,7 @@ function rebeccahill_posted_on() {
 
 	$posted_on = sprintf(
 		_x( 'Posted on %s', 'post date', 'rebeccahill' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$time_string
 	);
 
 /*	$byline = sprintf(

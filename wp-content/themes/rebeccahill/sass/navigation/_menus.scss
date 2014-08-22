@@ -1,8 +1,12 @@
+//TODO: don't like this sass structure, too confusing to find stuff
+
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
+	text-align: center;
+	margin-bottom: 6em;
+	letter-spacing: 0.05em;
 
 	ul {
 		list-style: none;
@@ -44,7 +48,6 @@
 		}
 	}
 	li {
-		float: left;
 		position: relative;
 
 		&:hover > a {
@@ -61,11 +64,11 @@
 }
 
 /* Small menu */
-.menu-toggle {
+/* .menu-toggle {
 	display: none;
-}
+} */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
 		display: block;
@@ -74,7 +77,7 @@
 	.main-navigation ul {
 		display: none;
 	}
-}
+} */
 
 .site-main .comment-navigation,
 .site-main .paging-navigation,

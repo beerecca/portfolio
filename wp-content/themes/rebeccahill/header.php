@@ -22,13 +22,13 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rebeccahill' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header container" role="banner">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="rebeccahill.co.nz"> -->rebeccahill.co.nz</a></h1>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'rebeccahill' ); ?></button>
+			<!-- <button class="menu-toggle"><?php _e( '☰', 'rebeccahill' ); ?></button> -->
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

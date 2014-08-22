@@ -1,8 +1,27 @@
 .entry-meta {
 	text-transform: uppercase;
-	font-size: 14px;
+	font-weight: 600;
+	@include font-size(1.4);
 }
 
+.single .entry-content>p:first-of-type {
+	//text-align: center;
+	border-top: 1px solid $color__brand;
+	border-bottom: 1px solid $color__brand;
+	padding: 1em 0;
+	@include font-size(1.8);
+}
+
+/* button.menu-toggle {
+	font-size: 20px;
+	padding: 5px;
+} */ //TODO: this should go in nav scss, and should change to svg. also need to add img squisher to grunt
+
+.main-navigation li a {
+	text-transform: uppercase;
+	@include font-size(1.8);
+	color: #fff;
+}
 
 p {
 	margin-bottom: 1.5em;
@@ -17,7 +36,11 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	padding-left: 1.5em;
+	border-left: 4px solid $color__brand;
+	line-height: 1.8em;
+	font-family: $font__head;
+	font-style: italic;
 }
 
 address {

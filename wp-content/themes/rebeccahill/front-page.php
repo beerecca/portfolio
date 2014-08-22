@@ -1,9 +1,10 @@
 <?php
+/* This template is used to display the Home page. */
 
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main container" role="main">
 
 		<!-- Display Home page content -->
 		<?php if ( have_posts() ) : ?>

@@ -1,16 +1,12 @@
 <?php
 /**
- * The template for displaying archive pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package Rebecca Hill
+ * Generic template for displaying archive pages.
  */
 
 get_header(); ?>
 
 	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main container" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
