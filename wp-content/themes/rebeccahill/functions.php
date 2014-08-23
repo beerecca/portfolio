@@ -154,12 +154,38 @@ function codex_custom_init() {
     $args = array(
       'public' => true,
       'label'  => 'Portfolio',
+      'hierarchical' => true,
       'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
       'has_archive' => true
     );
     register_post_type( 'portfolio', $args );
 }
 add_action( 'init', 'codex_custom_init' );
+
+
+/**
+ * Register Custom Post Taxonomy
+ */
+
+function create_portfolio_taxonomies() {
+	$labels = array(
+		'name'              => _x( 'Categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'category' ),
+	);
+
+	register_taxonomy( 'rh_category', 'portfolio', $args );
+}
+
+add_action( 'init', 'create_portfolio_taxonomies', 0 );
 
 
 /**
@@ -171,4 +197,11 @@ function remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
+
+
+/**
+ * Allow post re-ordering
+ */
+
+add_post_type_support( 'post', 'page-attributes' );
 

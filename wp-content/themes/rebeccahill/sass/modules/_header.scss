@@ -1,0 +1,37 @@
+//"logo"
+.site-title a, .site-title a:visited {
+	color: #fff;
+	text-decoration: none;
+	text-transform: lowercase;
+	font-weight: 500;
+	@include font-size(3.8);
+}
+
+.site-title {
+	text-align: center;
+}
+
+.site-branding {
+	margin: 3em 0 2em 0;
+}
+
+
+.home {
+	background: url("img/bg1_sm.jpg") no-repeat;
+}
+
+.post-type-archive-portfolio, .single-portfolio {
+	background: url("img/bg2_sm.jpg") no-repeat;
+}
+
+.blog, .single-post {
+	background: url("img/bg3_sm.jpg") no-repeat;
+}
+
+.page-id-7 {
+	background: url("img/bg4_sm.jpg") no-repeat;
+}
+
+.page-id-9 {
+	background: url("img/bg5_sm.jpg") no-repeat;
+}

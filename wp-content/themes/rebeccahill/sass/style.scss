@@ -1,32 +1,30 @@
-/* Sass Setup */
-@import "variables-site/variables-site";
-@import "mixins/mixins-master";
+//Utilities
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/clearings";
+@import "utils/accessibility";
 
-/* Reset */
-@import "reset";
 
-/* Layout */
-@import "layout/bootstrap_grid";
-@import "layout/widgets";
-@import "layout/posts-and-pages";
+//Vendor
+@import "vendor/reset";
+@import "vendor/bootstrap-grid";
 
-/* Typography */
-@import "typography/typography";
 
-/* Elements */
-@import "elements/elements";
+//Individual, smaller and consistent elements
+@import "elements/type";
+@import "elements/headings";
+@import "elements/links";
+@import "elements/lists";
+@import "elements/buttons";
+@import "elements/tables";
+@import "elements/images";
+@import "elements/hr";
 
-/* Forms */
-@import "forms/forms";
 
-/* Navigation */
-@import "navigation/navigation";
+//Larger modules, componentized for multi-use
+@import "modules/header";
+@import "modules/menus";
+@import "modules/media";
+@import "modules/forms";
+@import "modules/pages"; //aka "shame.scss", temporary placement before re-organising
 
-/* Accessibility */
-@import "modules/accessibility";
-
-/* Clearings */
-@import "modules/clearings";
-
-/* Media */
-@import "media/media";

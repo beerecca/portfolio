@@ -41,17 +41,34 @@ grunt.initConfig({
       }
     },
   autoprefixer: {
-        options: {
-          browsers: ['last 2 versions', 'ie 9']
-        },
-        single_file: {
-         src: 'style.min.css',
-         dest: 'style.min.css'
-        }
+      options: {
+        browsers: ['last 2 versions', 'ie 9']
+      },
+      single_file: {
+        src: 'style.min.css',
+        dest: 'style.min.css'
+      }
     },
+  imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: 'img/'
+        }]
+      }
+  },
   watch: {
       options: {
       livereload: true,
+      },
+      imagemin: {
+        files: [
+          'img/*.jpg', 
+          'img/*.png'
+        ],
+        tasks: ['imagemin'] //TODO: why isn't this working? grunt task on it's own works
       },
       sass: {
         files: [
@@ -83,6 +100,7 @@ grunt.initConfig({
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   // Register tasks
   grunt.registerTask('default', [
@@ -90,7 +108,8 @@ grunt.initConfig({
     'sass',
     'concat',
     'uglify',
-    'autoprefixer'
+    'autoprefixer',
+    'imagemin'
   ]);
   grunt.registerTask('dev', [
     'watch'

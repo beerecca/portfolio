@@ -5,6 +5,8 @@
  * @package Rebecca Hill
  */
 
+//TODO: need to style the 404 page
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">

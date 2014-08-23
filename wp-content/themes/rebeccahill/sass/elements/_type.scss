@@ -1,0 +1,89 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-style: normal;
+	font-weight: 400;
+	font-family: $font__main;
+	@include font-size(1.6);
+	line-height: $font__line-height-body;
+	text-align: center;
+}
+
+.entry-meta {
+	text-transform: uppercase;
+	font-weight: 600;
+	@include font-size(1.4);
+}
+
+.single .entry-content>p:first-of-type {
+	//text-align: center;
+	border-top: 1px solid $color__brand;
+	border-bottom: 1px solid $color__brand;
+	padding: 1em 0;
+	@include font-size(1.8);
+}
+
+.main-navigation li a {
+	text-transform: uppercase;
+	@include font-size(1.8);
+	color: #fff;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+
+//Special kinds of copy
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	padding-left: 1.5em;
+	border-left: 4px solid $color__brand;
+	line-height: 1.8em;
+	font-family: $font__head;
+	font-style: italic;
+}
+
+pre {
+	background: $color__background-pre;
+	font-family: $font__pre;
+	@include font-size(1.5);
+	line-height: $font__line-height-pre;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code, kbd, tt, var {
+	@include font-size(1.5);
+	font-family: $font__code;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}

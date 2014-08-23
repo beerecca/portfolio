@@ -1,0 +1,90 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+
+
+//TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
+
+//home
+.featured  {
+	margin: 0;
+	list-style: none; //TODO: why are these overriding themselves a bajillion times?
+}
+
+.panel, .panel a, .panel a:visited {
+	background-color: #433D49;
+	color: #fff;
+}
+
+.panel img {
+	margin: 1.5em 0 1em 0;
+}
+
+section {
+	padding-top: 2em;
+	padding-bottom: 1em;
+}
+
+section a, section a:visited {
+	color: #433D49;
+	text-decoration: none;
+}
+
+section a:hover {
+	text-decoration: underline;
+	color: #433D49;
+}
+
+section li {
+	border-bottom: 1px solid #433D49;
+}
+
+.panel li {
+	border-bottom: 1px solid #fff;
+}
+
+section li:last-of-type {
+	border-bottom: none;
+}
+
+//thoughts
+.single-post {
+
+	.entry-content>p:first-of-type {
+		border-top: 2px solid #62a387;
+		border-bottom: 2px solid #62a387;
+	}
+	.entry-content a, .nav-links a:visited {
+		color: #62a387;
+	}
+
+
+}
+
+
