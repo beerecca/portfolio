@@ -6,6 +6,15 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container" role="main">
 
+		<?php
+			$id=13;
+			$post = get_post($id);
+			$title = apply_filters('the_title', $post->post_title);
+			echo $title;
+			$content = apply_filters('the_content', $post->post_content);
+			echo $content;
+		?>
+
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
