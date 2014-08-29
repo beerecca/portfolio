@@ -3,8 +3,8 @@
 	color: #fff;
 	text-decoration: none;
 	text-transform: lowercase;
-	font-weight: 500;
-	@include font-size(3.8);
+	letter-spacing: 0.2em;
+	@include font-size(3.2);
 }
 
 .site-title {

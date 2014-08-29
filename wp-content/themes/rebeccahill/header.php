@@ -24,7 +24,7 @@
 
 	<header id="masthead" class="site-header container" role="banner">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="rebeccahill.co.nz"> -->rebeccahill.co.nz</a></h1>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="rebeccahill.co.nz"></a></h1>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

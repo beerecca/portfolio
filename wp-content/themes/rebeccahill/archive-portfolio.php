@@ -10,7 +10,7 @@ get_header(); ?>
 			$id=11;
 			$post = get_post($id);
 			$title = apply_filters('the_title', $post->post_title);
-			echo $title;
+			echo '<h1>'.$title.'</h1>';
 			$content = apply_filters('the_content', $post->post_content);
 			echo $content;
 		?>
@@ -40,7 +40,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php portfolio_paging_nav(); ?>
+			<?php rebeccahill_paging_nav(); ?>
 
 		<?php else : ?>
 

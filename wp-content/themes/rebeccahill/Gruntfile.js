@@ -53,7 +53,7 @@ grunt.initConfig({
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'img/',
+          cwd: 'img/original',
           src: ['**/*.{png,jpg,gif}'],
           dest: 'img/'
         }]
@@ -65,10 +65,10 @@ grunt.initConfig({
       },
       imagemin: {
         files: [
-          'img/*.jpg', 
-          'img/*.png'
+          'img/original/*.jpg', 
+          'img/original/*.png'
         ],
-        tasks: ['imagemin'] //TODO: why isn't this working? grunt task on it's own works
+        tasks: ['imagemin']
       },
       sass: {
         files: [

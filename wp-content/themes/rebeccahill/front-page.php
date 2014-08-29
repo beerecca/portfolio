@@ -34,8 +34,8 @@ get_header(); ?>
 				<?php while ($portfolio_query -> have_posts()) : $portfolio_query -> the_post(); ?>
 				<li>
 					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
-					<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-					<?php the_excerpt(__('(more…)')); ?>
+					<!-- <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+					<?php the_excerpt(__('(more…)')); ?> -->
 					
 				</li>
 				<?php wp_reset_postdata(); endwhile;?>

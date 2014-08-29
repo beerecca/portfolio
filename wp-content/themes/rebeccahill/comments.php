@@ -64,6 +64,8 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', 'rebeccahill' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php 
+		$args = array( 'title_reply' => '<h2>Leave a Reply</h2>' );
+		comment_form($args); ?>
 
 </div><!-- #comments -->
