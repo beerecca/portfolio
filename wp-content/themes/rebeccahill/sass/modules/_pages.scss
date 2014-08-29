@@ -37,10 +37,10 @@
 	list-style: none; //TODO: why are these overriding themselves a bajillion times?
 }
 
-.panel, .panel a, .panel a:visited {
+/* .panel, .panel a, .panel a:visited {
 	background-color: #433D49;
 	color: #fff;
-}
+} */
 
 .panel img {
 	margin: 1.5em 0 1em 0;
@@ -61,13 +61,17 @@ section a:hover {
 	color: #433D49;
 }
 
-section li {
+/* section li {
 	border-bottom: 1px solid #433D49;
-}
+} */
 
-.panel li {
+/* .panel li {
 	border-bottom: 1px solid #fff;
-}
+} */
+
+/* .panel li a:hover {
+	background: url('http://localhost:8888/portfolio/wp-content/uploads/2014/08/greenstone.jpg');
+} */
 
 section li:last-of-type {
 	border-bottom: none;

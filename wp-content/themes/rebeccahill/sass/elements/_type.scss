@@ -29,7 +29,7 @@ textarea {
 .main-navigation li a {
 	text-transform: uppercase;
 	@include font-size(1.8);
-	color: #fff;
+	color: #fff !important; //TODO: oh god get rid of this 
 }
 
 p {

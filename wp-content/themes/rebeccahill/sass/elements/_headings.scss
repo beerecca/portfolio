@@ -10,13 +10,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-	@include font-size(3.2);
+	@include font-size(4);
 	line-height: 1.4em;
 	margin-bottom: .5em;
 }
 
 h2 {
-	@include font-size(2.8);
+	@include font-size(2.6);
 	line-height: 1.4em;
 	margin-bottom: .5em;
 }

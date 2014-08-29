@@ -10,3 +10,34 @@ a {
 		color: $color__link-hover;
 	}
 }
+
+
+//TODO: turn this into a mixin? same with buttons. also colours should be vars
+
+.blog a {
+	color: #62a387;
+
+	&:visited {
+		color: #62a387;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: #62a387; //TODO: this should be auto calculated darker
+	}
+}
+
+
+
+.single-post a {
+	color: #62a387;
+
+	&:visited {
+		color: #62a387;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: #62a387;
+	}
+}
