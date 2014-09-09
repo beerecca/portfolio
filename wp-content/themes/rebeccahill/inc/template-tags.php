@@ -53,7 +53,7 @@ function rebeccahill_post_nav() {
 		<div class="nav-links entry-meta">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="icon-arrow-left"></span>%title', 'Previous post link', 'rebeccahill' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title<span class="icon-arrow-right"></span>', 'Next post link',     'rebeccahill' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '<span class="icon-arrow-right"></span><p>%title</p>', 'Next post link',     'rebeccahill' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->

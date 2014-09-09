@@ -84,16 +84,21 @@
 	width: 50%;
 }
 
-.post-navigation .icon-arrow-left {
-	float: left;
-	margin: 5px 5px 75px 0;
+.post-navigation {
+
+	.icon-arrow-left {
+		float: left;
+		margin: 5px 5px 75px 0;
+	}
+
+	.icon-arrow-right {
+		float: right;
+		margin: 5px 0px;
+	}
+
+	.nav-next p {
+		margin-right: 20px;
+	}
 }
-
-.post-navigation .icon-arrow-right {
-	float: right;
-	margin: 5px 0px 75px 5px;
-}
-
-
-
-
+	
+//TODO: make the contact form validation the same as the comment form validation
