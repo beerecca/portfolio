@@ -5,7 +5,7 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+<img src="<?php echo get_stylesheet_directory_uri();?>/img/triangle.png" alt="" class="triangle">
 		<!-- Display Home page content -->
 		<section class="container">
 			<?php if ( have_posts() ) : ?>
@@ -22,7 +22,7 @@ get_header(); ?>
 
 		<!-- Display Latest Portfolio Items -->
 		<section class="panel container">
-			<h2>Favourite Projects</h2>
+			<h1>Favourite Projects</h1>
 			<ul class="featured">
 				<?php $args = array(
 					'showposts' => '3', 
@@ -45,7 +45,7 @@ get_header(); ?>
 
 		<!-- Display Latest Thoughts -->
 		<section class="container">
-			<h2>Deepest Thoughts</h2>
+			<h1>Deepest Thoughts</h1>
 			<ul class="featured">
 				<?php $args = array(
 					'showposts' => '3',

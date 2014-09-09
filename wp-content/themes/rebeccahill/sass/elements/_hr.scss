@@ -1,6 +1,35 @@
 hr {
-	background-color: $color__background-hr;
-	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
-} //TODO: style with buttons and links in a mixin for the colours. otherwise make it look like the border on first p on detail pages
+}
+
+
+//Correct theme colours for hr
+
+@mixin hr($class, $color-pg) {
+	.#{$class} hr {
+		border-top: 2px solid $color-pg;
+	}
+}
+
+@each $class, $color-pg in $themes {
+	@include hr($class, $color-pg);
+}
+
+
+//Correct theme colours for first paragraph borders
+
+@mixin first-p($color) {
+	.entry-content>p:first-of-type {
+		border-top: 2px solid $color;
+		border-bottom: 2px solid $color;
+	}
+}
+
+.single-portfolio {
+	@include first-p($color-projects);
+}
+
+.single-post {
+	@include first-p($color-thoughts);
+}

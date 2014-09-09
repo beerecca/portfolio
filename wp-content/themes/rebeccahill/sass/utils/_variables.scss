@@ -1,6 +1,6 @@
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
+/* $color__background-hr: #ccc; */
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
@@ -8,7 +8,7 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: pink; //TODO: need to change these to a sensible default
+$color__link: pink; //TODO: need to change these to a sensible default - just remove? also remove any other vars not being used
 $color__link-visited: turquoise;
 $color__link-hover: midnightblue;
 $color__text-main: #404040;
@@ -16,7 +16,7 @@ $color__text-main: #404040;
 $color__border-button: #8b3349;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #666;
+$color__border-input: #BDBDBD;
 $color__border-abbr: #666;
 
 
@@ -29,3 +29,23 @@ $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.8;
 $font__line-height-pre: 1.6;
+
+
+$color-neutral: #D6D6D6;
+
+$color-home: #ad3349;
+$color-projects: #3d74bc;
+$color-thoughts: #713f96;
+$color-about: #64bb43;
+$color-contact: #e78468;
+
+
+$themes: (
+	home: $color-home,
+	post-type-archive-portfolio: $color-projects,
+	single-portfolio: $color-projects,
+	blog: $color-thoughts, 
+	single-post: $color-thoughts,
+	page-id-7: $color-about,
+	page-id-9: $color-contact
+) !default;

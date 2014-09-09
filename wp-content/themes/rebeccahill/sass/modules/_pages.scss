@@ -51,7 +51,7 @@ section {
 	padding-bottom: 1em;
 }
 
-section a, section a:visited {
+/* section a, section a:visited {
 	color: #433D49;
 	text-decoration: none;
 }
@@ -59,7 +59,7 @@ section a, section a:visited {
 section a:hover {
 	text-decoration: underline;
 	color: #433D49;
-}
+} */
 
 /* section li {
 	border-bottom: 1px solid #433D49;
@@ -77,18 +77,21 @@ section li:last-of-type {
 	border-bottom: none;
 }
 
-//thoughts
-.single-post {
-
-	.entry-content>p:first-of-type {
-		border-top: 2px solid #62a387;
-		border-bottom: 2px solid #62a387;
-	}
-	.entry-content a, .nav-links a:visited {
-		color: #62a387;
-	}
 
 
+.triangle {
+	position: absolute;
+top: 106px;
+left: 384px;
+z-index: -1;
+animation: myfirst 2s;
 }
 
+//TODO: put a default header on all pages, to be overriden with page specific.
 
+
+/* Standard syntax */
+@keyframes myfirst {
+    from {left: 384px; top: 0px;}
+    to {left: 384px; top: 106px;}
+}

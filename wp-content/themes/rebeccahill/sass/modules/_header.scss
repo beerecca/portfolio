@@ -2,6 +2,7 @@
 .site-title a, .site-title a:visited {
 	color: #fff;
 	text-decoration: none;
+	border: none !important;
 	text-transform: lowercase;
 	letter-spacing: 0.2em;
 	@include font-size(3.2);

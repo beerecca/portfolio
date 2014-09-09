@@ -18,13 +18,15 @@
 @import "elements/buttons";
 @import "elements/tables";
 @import "elements/images";
-@import "elements/sprites";
+@import "elements/icons";
 @import "elements/hr";
 
 
 //Larger modules, componentized for multi-use
 @import "modules/header";
 @import "modules/menus";
+@import "modules/footer";
+@import "modules/comments";
 @import "modules/media";
 @import "modules/forms";
 @import "modules/pages"; //aka "shame.scss", temporary placement before re-organising

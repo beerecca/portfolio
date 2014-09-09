@@ -198,6 +198,18 @@ function remove_comment_form_allowed_tags( $defaults ) {
 	return $defaults;
 }
 
+/**
+ * Remove comment form url field
+ */
+
+add_filter('comment_form_default_fields', 'url_filtered');
+function url_filtered($fields)
+{
+  if(isset($fields['url']))
+   unset($fields['url']);
+  return $fields;
+}
+
 
 /**
  * Allow post re-ordering

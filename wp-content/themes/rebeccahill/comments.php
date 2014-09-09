@@ -65,7 +65,10 @@ if ( post_password_required() ) {
 	<?php endif; ?>
 
 	<?php 
-		$args = array( 'title_reply' => '<h2>Leave a Reply</h2>' );
+		$args = array( 
+			'title_reply' => '<h2>Leave a Comment</h2>',
+			'comment_notes_before' => '<p class="comment-notes">' .__( 'Your email address will not be published.' ) .'</p>'
+	    );
 		comment_form($args); ?>
 
 </div><!-- #comments -->
