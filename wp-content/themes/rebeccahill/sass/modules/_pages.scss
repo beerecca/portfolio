@@ -1,3 +1,12 @@
+@include breakpoint(small) {
+	.container-fluid {
+		margin-left: 30rem;
+		margin-right: 1rem;
+		max-width: 1500px;
+	}
+}
+
+
 .sticky {
 	display: block;
 }
@@ -18,7 +27,8 @@
 
 .page-content,
 .entry-content,
-.entry-summary {
+.entry-summary,
+.screenshots {
 	margin: 1.5em 0 0;
 }
 
@@ -27,9 +37,18 @@
 	margin: 0 0 1.5em;
 }
 
+//about page
+
+#image_rotate {
+    background-image: url("img/me.jpg");
+    height: 500px;
+    width: 500px;
+    background-repeat: no-repeat;
+}
 
 
 //TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
+//TODO: remove bootstrapgrid.scss file if not using it
 
 //home
 .featured  {
@@ -77,6 +96,60 @@ section li:last-of-type {
 	border-bottom: none;
 }
 
+.home .featured a {
+	float: left;
+	width: 50%;
+	//shape-inside: circle(250px at 50% 50%);
+	//shape-margin: 2px;
+}
+
+.imac, .screenshot {
+	position: absolute;
+	left: 0;
+}
+
+.screenshot {
+	padding-top: 25px;
+}
+
+/* .screenshots {
+padding: 1rem;
+} */
+
+.clip {
+	position: absolute;
+width: 96%;
+height: 340px;
+//-webkit-clip-path: inset(0 0, 100px 0px, 100px 300px, 0 300px);
+overflow: hidden;
+}
+
+
+.test {
+	position: relative;
+float: left;
+width: 20%;
+}
+
+.wp-image-155 {
+/* 	position: absolute; */
+	width: 100%;
+	z-index: 1;
+}
+
+.wp-image-156 {
+	position: absolute;
+	animation: test 2s;
+	left: 25px;
+z-index: -1;
+width: 71%;
+top: 50px;
+}
+
+@keyframes test {
+    from {left: -900px;}
+    to {left: 0px;}
+}
 
 
 .triangle {

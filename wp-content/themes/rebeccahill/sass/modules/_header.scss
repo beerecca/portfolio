@@ -1,38 +1,71 @@
-//"logo"
+//LOGO
 .site-title a, .site-title a:visited {
-	color: #fff;
 	text-decoration: none;
-	border: none !important;
-	text-transform: lowercase;
-	letter-spacing: 0.2em;
-	@include font-size(3.2);
+	border-bottom: 0 !important; //TODO: this is weird, check the dev tools, double ups
 }
 
 .site-title {
-	text-align: center;
+	margin: 1em auto;
+	max-width: 700px;
 }
 
-.site-branding {
-	margin: 3em 0 2em 0;
+@include breakpoint(small) {
+	.logo {
+		fill: #000;
+	}
+}//TODO: need fallback png as per css tricks using svg
+
+
+//NAVIGATION
+@include breakpoint(small) {
+	.main-navigation li {
+		display: inline-block;//TODO: flex?
+		margin-right: 40px;
+	}
 }
 
-
+//BACKGROUNDS
 .home {
 	background: url("img/bg1_sm.jpg") no-repeat;
+	@include breakpoint(small) {
+		background: url("img/bg1_lg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-size: 500px;
+	}
 }
 
 .post-type-archive-portfolio, .single-portfolio {
 	background: url("img/bg2_sm.jpg") no-repeat;
+	@include breakpoint(small) {
+		background: url("img/bg2_lg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-size: 500px;
+	}
 }
 
 .blog, .single-post {
 	background: url("img/bg3_sm.jpg") no-repeat;
+	@include breakpoint(small) {
+		background: url("img/bg3_lg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-size: 500px;
+	}
 }
 
 .page-id-7 {
 	background: url("img/bg4_sm.jpg") no-repeat;
+	@include breakpoint(small) {
+		background: url("img/bg4_lg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-size: 500px;
+	}
 }
 
 .page-id-9 {
 	background: url("img/bg5_sm.jpg") no-repeat;
+	@include breakpoint(small) {
+		background: url("img/bg5_lg.jpg") no-repeat;
+		background-attachment: fixed;
+		background-size: 500px;
+	}
 }

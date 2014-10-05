@@ -7,7 +7,7 @@ textarea {
 	font-style: normal;
 	font-weight: 400;
 	font-family: $font__main;
-	@include font-size(1.6);
+	@include font-size(1.8);
 	line-height: $font__line-height-body;
 	text-align: center;
 }
@@ -23,19 +23,30 @@ textarea {
 	border-top: 1px solid $color__brand;
 	border-bottom: 1px solid $color__brand;
 	padding: 1em 0;
-	@include font-size(1.8);
+	@include font-size(2);
 }
 
 .main-navigation li a {
 	text-transform: uppercase;
-	@include font-size(1.8);
-	color: #fff !important; //TODO: oh god get rid of this 
+	@include font-size(2);
+	color: #fff !important; //TODO: oh god get rid of this
+	@include breakpoint(small) {
+		color: $color__text-main !important;
+	}
+}
+
+.pull-copy {
+	font-family: $font__head;
+	@include font-size(2.6);
+	font-weight: 200;
 }
 
 p {
 	margin-bottom: 1.5em;
 }
-
+//TODO: ftf put messages about crappy bits on the actual site - eg Note there would normally have to be some filtering/moderation
+//TODO: test all links
+//TODO: put year/month on projects
 
 //Special kinds of copy
 
@@ -48,12 +59,44 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	padding-left: 1.5em;
-	border-left: 4px solid $color__brand;
+	padding-left: 2em;
 	line-height: 1.8em;
 	font-family: $font__head;
 	font-style: italic;
+	margin: 2.5em auto 1.5em auto;
+	@include breakpoint(small) {
+		width: 80%;
+	}
+
+	&:before {
+		content: '“';
+		font-family: $font__main;
+		font-weight: 900;
+		@include font-size(20);
+		position: absolute;
+		left: 0px;
+		z-index: -1;
+		margin-top: 50px;
+		@include breakpoint(small) {
+			left: 38rem;
+		}
+	}
 }
+
+@mixin blockquotes($class, $color-pg) {
+	.#{$class} blockquote {
+		border-left: 10px solid $color-pg;
+		color: $color-pg;
+		&:before {
+			color: lighten($color-pg, 40%);
+		}
+	}
+}
+
+@each $class, $color-pg in $themes {
+	@include blockquotes($class, $color-pg);
+}
+
 
 pre {
 	background: $color__background-pre;

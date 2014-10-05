@@ -18,14 +18,15 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('container-fluid'); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rebeccahill' ); ?></a>
 
-	<header id="masthead" class="site-header container" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" alt="rebeccahill.co.nz"></a></h1>
-		</div>
+	<header id="masthead" class="site-header" role="banner">
+		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<?php get_template_part('img/inline', 'logo.svg');?>
+		<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="rebeccahill.co.nz"> -->
+		</a></h1>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<!-- <button class="menu-toggle"><?php _e( '☰', 'rebeccahill' ); ?></button> -->

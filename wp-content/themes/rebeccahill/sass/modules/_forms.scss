@@ -39,6 +39,8 @@ textarea {
 	border: 1px solid $color__border-input;
 	text-align: left;
 	padding: 3px;
+	width: 100%;
+	max-width: 400px;
 
 	&:focus {
 		color: $color__text-input-focus;
@@ -50,7 +52,7 @@ textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 100%;
+	max-width: 800px;
 }
 
 div.wpcf7 {
