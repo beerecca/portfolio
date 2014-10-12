@@ -41,14 +41,22 @@
 
 #image_rotate {
     background-image: url("img/me.jpg");
-    height: 500px;
-    width: 500px;
+    //height: 500px;
+    width: 100%;
     background-repeat: no-repeat;
+    background-size: 100%; 
+
+	&:before {
+		content: "";
+		display: block;
+		padding-top: 100%;
+	}
 }
 
 
 //TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
 //TODO: remove bootstrapgrid.scss file if not using it
+//TODO: need a default background for 404 and style guide pages for example
 
 //home
 .featured  {

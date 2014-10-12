@@ -1,56 +1,115 @@
 jQuery(document).ready(function($){
 
-//TODO: split into page specific scripts to be enqueued properly
+//TODO: split into page specific scripts to be enqueued properly. also add to about the site
 
 
 /*From https://github.com/Prinzhorn/skrollr*/
     var s = skrollr.init({forceHeight:false});
 
 
-/*From http://stackoverflow.com/questions/14505958/image-changes-depending-on-the-position-of-the-mouse*/
+/*Modified from http://stackoverflow.com/questions/14505958/image-changes-depending-on-the-position-of-the-mouse*/
     
-    var image_src = {	
-        top: "background-position: 0px -2500px;",
-        topleft: "background-position: 0px -3000px;",
-        left: "background-position: 0px -3500px;",
-        right: "background-position: 0px -1500px",
-        topright: "background-position: 0px -2000px;",
-        bottomleft: "background-position: 0px -4000px;",
-        bottomright: "background-position: 0px -1000px;",
-        bottom: "background-position: 0px -500px;",
+    var $me = $(".me");
+    var currentWidth = $me.width();
+
+    $(window).resize(function(){
+      currentWidth = $me.width();
+      var image_src = { 
+        bottom: "background-position: 0px "+-currentWidth+"px",
+        bottomleft: "background-position: 0px "+-1*currentWidth+"px",
+        left: "background-position: 0px "+-2*currentWidth+"px",
+        topleft: "background-position: 0px "+-3*currentWidth+"px",
+        top: "background-position: 0px "+-4*currentWidth+"px",
+        topright: "background-position: 0px "+-5*currentWidth+"px",
+        right: "background-position: 0px "+-6*currentWidth+"px",
+        bottomright: "background-position: 0px "+-7*currentWidth+"px"
+      };
+    });
+
+    var image_src = { 
+        front: "background-position: 0px 0px",
+        bottom: "background-position: 0px "+-currentWidth+"px",
+        bottomLeft: "background-position: 0px "+-2*currentWidth+"px",
+        left: "background-position: 0px "+-3*currentWidth+"px",
+        topLeft: "background-position: 0px "+-4*currentWidth+"px",
+        top: "background-position: 0px "+-5*currentWidth+"px",
+        topRight: "background-position: 0px "+-6*currentWidth+"px",
+        right: "background-position: 0px "+-7*currentWidth+"px",
+        bottomRight: "background-position: 0px "+-8*currentWidth+"px"
     };
-    
+
+    //TODO: the y position above needs to equal index * current width of image/div. including on resize
+   
     $(document).mousemove(function(event){
         var location = {
             x: event.pageX,
             y: event.pageY
         };
-        console.log(location);
+        var imageTop = $me.offset().top + $me.height()*0.3,
+            imageLeft = $me.offset().left + $me.width()*0.3,
+            imageBottom = imageTop + $me.height()*0.3,
+            imageRight = imageLeft + $me.width()*0.3;
         
+        if(location.x >imageLeft && location.x <imageRight && location.y <imageTop){
+            $me.attr("style", image_src.top);
+        } else if(location.x <imageLeft && location.y <imageTop){
+            $me.attr("style", image_src.topLeft);
+        } else if(location.x <imageLeft && location.y >imageTop && location.y <imageBottom){
+            $me.attr("style", image_src.left);
+        } else if(location.x <imageLeft && location.y >imageBottom){
+            $me.attr("style", image_src.bottomLeft);
+        } else if(location.x >imageLeft && location.x <imageRight && location.y >imageBottom){
+            $me.attr("style", image_src.bottom);
+        } else if(location.x >imageRight && location.y >imageBottom){
+            $me.attr("style", image_src.bottomRight);
+        } else if(location.x >imageRight && location.y >imageTop && location.y <imageBottom){
+            $me.attr("style", image_src.right);
+        } else if(location.x >imageRight && location.y <imageTop){
+            $me.attr("style", image_src.topRight);
+        } else{
+            $me.attr("style", image_src.front);
+        }
+
+
+       /* if (location.x <=0 && location.y >=0) {
+          $me.attr("style", image_src.bottomleft);
+        }
+        else if (location.x >0 && location.y >=0) {
+          $me.attr("style", image_src.bottomright);
+        }
+        else if (location.x >0 && location.y <0) {
+          $me.attr("style", image_src.topright);
+        }
+        else if (location.x <=0 && location.y <0) {
+          $me.attr("style", image_src.topleft);
+        }*/
+
+
+       /* 
         if ((location.x >= 0 && location.x <= $(document).width()/2) && (location.y >= 0 && location.y <= $(document).height()/2)) {
-            $(".me").attr("style", image_src.top);
+            $me.attr("style", image_src.top);
         } 
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= 0 && location.y <= $(document).height()/2)) {
-            $(".me").attr("style", image_src.topleft);
+            $me.attr("style", image_src.topleft);
         }
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= 0 && location.y <= $(document).height()/2)) {
-            $(".me").attr("style", image_src.topright);
+            $me.attr("style", image_src.topright);
         }
         else if ((location.x >= 0 && location.x <= $(document).width()/2) && (location.y >= $(document).height()/2 && location.y <= $(document).height())) {
-            $(".me").attr("style", image_src.left);
+            $me.attr("style", image_src.left);
         }
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= 0 && location.y <= $(document).height()/2)) {
-            $(".me").attr("style", image_src.right);
+            $me.attr("style", image_src.right);
         }
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= 0 && location.y <= $(document).height()/2)) {
-            $(".me").attr("style", image_src.bottomleft);
+            $me.attr("style", image_src.bottomleft);
         }
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= $(document).height()/2 && location.y <= $(document).height())) {
-            $(".me").attr("style", image_src.bottomright);
+            $me.attr("style", image_src.bottomright);
         } 
         else if ((location.x >= $(document).width()/2 && location.x <= $(document).width()) && (location.y >= $(document).height()/2 && location.y <= $(document).height())) {
-            $(".me").attr("style", image_src.bottom);
-        }
+            $me.attr("style", image_src.bottom);
+        }*/
     });
 
 }); //ready

@@ -18,7 +18,8 @@ textarea {
 	@include font-size(1.4);
 }
 
-.single .entry-content>p:first-of-type {
+.single .entry-content>p:first-of-type,
+.first-p {
 	//text-align: center;
 	border-top: 1px solid $color__brand;
 	border-bottom: 1px solid $color__brand;

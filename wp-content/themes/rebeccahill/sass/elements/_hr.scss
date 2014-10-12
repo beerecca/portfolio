@@ -20,7 +20,8 @@ hr {
 //Correct theme colours for first paragraph borders
 
 @mixin first-p($color) {
-	.entry-content>p:first-of-type {
+	.entry-content>p:first-of-type,
+	.first-p {
 		border-top: 2px solid $color;
 		border-bottom: 2px solid $color;
 	}
@@ -32,4 +33,8 @@ hr {
 
 .single-post {
 	@include first-p($color-thoughts);
+}
+
+.page-id-7 {
+	@include first-p($color-about);
 }
