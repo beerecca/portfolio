@@ -2373,9 +2373,9 @@
 	</linearGradient>
 	<polygon fill="url(#SVGID_388_)" points="2915.45,1009.21 2915.45,986.8 2897.22,993.25 	"/>
 </g>
-<linearGradient id="SVGID_389_" gradientUnits="userSpaceOnUse" x1="1683.1895" y1="1813.7969" x2="1683.1895" y2="2215.4011" gradientTransform="matrix(1 0 0 1 -152.6406 -575.541)">
-	<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+<linearGradient id="SVGID_389_" gradientUnits="userSpaceOnUse" x1="1683.1895" y1="1844.7969" x2="1683.1895" y2="2146.041" gradientTransform="matrix(1 0 0 1 -152.6406 -575.541)">
+	<stop  offset="0.038" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	<stop  offset="1" style="stop-color:#FFFFFF"/>
 </linearGradient>
-<rect x="137.5" y="889" fill="url(#SVGID_389_)" width="2786.1" height="783.62"/>
+<rect x="137.5" y="892" fill="url(#SVGID_389_)" width="2786.1" height="783.62"/>
 </svg>

@@ -26,9 +26,15 @@
 </div>
 <?php endif;?>
 
-<?php if(is_archive()):?>
+<?php if(is_post_type_archive('portfolio')):?>
 <div class="background" aria-hidden="true">
 	<?php get_template_part('img/inline', '2.svg');?>
+</div>
+<?php endif;?>
+
+<?php if(is_home()):?>
+<div class="background" aria-hidden="true">
+	<?php get_template_part('img/inline', '3.svg');?>
 </div>
 <?php endif;?>
 
