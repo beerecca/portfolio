@@ -1,6 +1,126 @@
+
+
+window.onload = function(){
+
+ /*   var test = document.getElementById("test");
+test.addEventListener('click', function(e){
+fuck();
+
+var s = Snap('#draggy');
+var draggy = s.select('#draggy-p');
+draggy.attr({fill:'#ff0ff0'});
+draggy.drag();
+});*/
+
+//ok, not a problem with the inline.php method
+//not a problem with the id= method on svg or g elements
+//seems to be an issue with id= on a polygon - poss because of the gradient
+//seems to be something to do with css of the header, as image works in page elsewhere. could be z-index, could be gradient overlay...
+//sort out your js events, should only ever have one event that calls multiple functions not the other way round.
+//ok so snap dragging half works. svg.js dragging is easier but wont work easily on exisitng svgs! fuck this shit.
+//so snap works on a single id on a group surrounding a polygon without a gradient. too far from winning to keep going.
+
+
+/*var q = Snap.select('#draggy');
+var testy = q.selectAll('.draggy-g');
+console.log(testy);
+
+
+var single = testy[1];
+console.log(single);
+single.drag();//this doesnt work!
+
+single.attr({fill: "#ff0000"});*/
+
+/*var q = Snap.select('#draggy');
+var testy = q.selectAll('polygon');
+
+console.log(testy);
+
+var single = testy[1];
+console.log(single);
+
+single.drag();
+single.attr({fill: "#ff0000"});*/
+
+/*for (i=0; i<testy.length; i++) {
+  testy.items[i].drag();
+}*/
+
+/*var moveFunc = function (dx, dy, posx, posy) {
+    this.attr( { cx: posx , cy: posy } ); // basic drag, you would want to adjust to take care of where you grab etc.
+};
+
+testy.drag(moveFunc,
+            function(){
+                console.log("Move started");
+            },
+            function(){
+                console.log("Move stopped");
+            });*/
+
+/*var q = SVG('#draggy');
+var testy = q.select('#draggy-g');
+testy.draggable();*/
+
+
+
+  var triangle = document.getElementsByTagName("polygon");
+  
+  for (i=0; i<triangle.length; i++) {
+      
+      triangle[i].style.transitionDuration = Math.random()*(3-1)+1+"s";
+
+      setDelay(i);
+        
+      
+  }
+
+  function setDelay(i) {
+    setTimeout(function(){
+      triangle[i].classList.add('moove');
+    }, Math.random()*(2000-1000)+500);
+  }
+    
+  
+    //normal distribution: triangle[i].style.transitionDuration = ((Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1))*(2)+2 + "s";  
+    
+  
+ 
+
+
+
+
+
+};
+
 jQuery(document).ready(function($){
 
-//TODO: split into page specific scripts to be enqueued properly. also add to about the site
+//TODO: split into page specific scripts to be enqueued properly. also add to about the site. also refactor into var something = {init: ??}, something.init
+
+
+
+
+/*
+  var $triangle = $("polygon");
+
+  $triangle.each(function(){
+
+    $(this).attr('class', 'moove');
+  
+    $(this).css({transitionDuration: Math.random()*(4-1)+1 + "s"});
+
+  });*/
+
+    
+  
+    //normal distribution: triangle[i].style.transitionDuration = ((Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1))*(2)+2 + "s";  
+    
+  
+
+
+
+
 
 
 /*From https://github.com/Prinzhorn/skrollr*/
@@ -9,7 +129,7 @@ jQuery(document).ready(function($){
 
 /*Modified from http://stackoverflow.com/questions/14505958/image-changes-depending-on-the-position-of-the-mouse*/
 
-    $(window).resize(function(){
+/*    $(window).resize(function(){
 
       $(".me").attr("style", "background-position: 0px 0px");
       
@@ -68,7 +188,7 @@ jQuery(document).ready(function($){
     } else{
         $me.attr("style", image_src.front);
     }
-  }
+  }*/
 
 
 
@@ -237,11 +357,11 @@ jQuery(document).ready(function($){
     })();
 
 
-window.onload = function() {
+/*window.onload = function() {
     // Add GifLinks to all anchor tags on the page!
     var element = document.querySelector( '.me' );
     if (element) {
       GifLinks( element );
     }
     
-}
+}*/

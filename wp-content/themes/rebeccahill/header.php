@@ -18,8 +18,21 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('container-fluid'); ?>>
-<div id="page" class="hfeed site">
+<body <?php body_class(); ?>>
+
+<?php if(is_front_page()):?>
+<div class="background" aria-hidden="true">
+	<?php get_template_part('img/inline', '1.svg');?>
+</div>
+<?php endif;?>
+
+<?php if(is_archive()):?>
+<div class="background" aria-hidden="true">
+	<?php get_template_part('img/inline', '2.svg');?>
+</div>
+<?php endif;?>
+
+<div id="page" class="hfeed site container-fluid">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rebeccahill' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">

@@ -25,7 +25,9 @@
 	<?php if (get_field('right_column')): ?>
 	
 		<div class="col-md-6">
-			<div id="image_rotate" class="me" data-src="http://giant.gfycat.com/FondIdleAnkolewatusi.gif"></div>
+			<?php if (is_page('about')): ?>
+				<div id="image_rotate" class="me" data-src="http://giant.gfycat.com/FondIdleAnkolewatusi.gif"></div>
+			<?php endif ?>
 			<?php the_field('right_column')?>
 		</div> 
 

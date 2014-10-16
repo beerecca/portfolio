@@ -25,23 +25,73 @@
 }
 
 //BACKGROUNDS
-.home {
-	background: url("img/bg1_sm.jpg") no-repeat;
+
+.background {
+	z-index: -1;
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+	text-align: left;
+	background-repeat: no-repeat;
+	background-size: 754px;
 	@include breakpoint(small) {
-		background: url("img/bg1_lg.jpg") no-repeat;
-		background-attachment: fixed;
-		background-size: 500px;
+		transform: rotate(270deg) translateX(-754px);
+		transform-origin: top left;
+		position: fixed;
+		width: auto;
+		background-repeat: repeat-y;
 	}
 }
 
-.post-type-archive-portfolio, .single-portfolio {
+polygon {
+	transform: translateY(-400px);
+	@include breakpoint(small) {
+		transform: translateX(2000px);
+	}
+}
+
+.moove {
+	transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+	transition-delay: 0.5s;
+	transform: translateY(0px);
+	@include breakpoint(small) {
+		transform: translateX(0px);
+	}
+}
+
+.home .background {
+	background-image: url("img/test.png");
+}
+
+.post-type-archive-portfolio .background, 
+.single-portfolio .background {
+	background-image: url("img/test2.png");
+}
+
+//TODO: edit the svg to be maybe twice as long? possibly so that it will pattern into itself? or fade but only in desktop. 
+//will then need to sort out heights etc. note theres a width inside the svg itself
+//TODO: can we make the svgs animate in a bell curve? ie a couple are really fast, most are middling, some are slow?
+
+/* .home {
+	background: url("img/1.svg");
+	background-repeat: no-repeat;
+	background-size: 768px;
+	@include breakpoint(small) {
+		background: url("img/1_lg.svg");
+		background-repeat: repeat-y;
+		background-attachment: fixed;
+		background-size: 450px;
+	}
+} */
+
+/* .post-type-archive-portfolio, .single-portfolio {
 	background: url("img/bg2_sm.jpg") no-repeat;
 	@include breakpoint(small) {
 		background: url("img/bg2_lg.jpg") no-repeat;
 		background-attachment: fixed;
 		background-size: 500px;
 	}
-}
+} */
 
 .blog, .single-post {
 	background: url("img/bg3_sm.jpg") no-repeat;
