@@ -61,6 +61,23 @@
 	}
 }
 
+.main-navigation li a {
+	text-transform: uppercase;
+	@include font-size(2);
+	color: #fff !important; //TODO: oh god get rid of this
+	@include breakpoint(small) {
+		color: $color__text-main !important;
+	}
+}
+
+
+@include breakpoint(small) {
+	.main-navigation li {
+		display: inline-block;//TODO: flex?
+		margin-right: 40px;
+	}
+}
+
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {

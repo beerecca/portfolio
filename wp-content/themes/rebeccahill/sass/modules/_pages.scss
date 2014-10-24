@@ -37,6 +37,35 @@
 	margin: 0 0 1.5em;
 }
 
+//home page
+
+.home .container-fluid {
+	margin-left: 1rem;
+}
+
+.featured  {
+	margin: 0;
+	list-style: none; //TODO: why are these overriding themselves a bajillion times?
+}
+
+.home .site-content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.home .main-navigation li a {
+	color: #fff !important;
+}
+
+.home p {
+	color: #fff;
+	@include font-size(2.2); //TODO: why won't pt sans let me have a lighter weight
+}
+
+.home .main-navigation {
+	margin-bottom: 1em;
+}
+
 //about page
 
 #image_rotate {
@@ -61,11 +90,6 @@
 //TODO: remove bootstrapgrid.scss file if not using it
 //TODO: need a default background for 404 and style guide pages for example
 
-//home
-.featured  {
-	margin: 0;
-	list-style: none; //TODO: why are these overriding themselves a bajillion times?
-}
 
 /* .panel, .panel a, .panel a:visited {
 	background-color: #433D49;
@@ -173,10 +197,4 @@ animation: myfirst 2s;
 
 //TODO: put a default header on all pages, to be overriden with page specific.
 
-
-/* Standard syntax */
-@keyframes myfirst {
-    from {left: 384px; top: 0px;}
-    to {left: 384px; top: 106px;}
-}
 

@@ -21,7 +21,7 @@
 <body <?php body_class(); ?>>
 
 <?php if(is_front_page()):?>
-<div class="background" aria-hidden="true">
+<div class="home-background" aria-hidden="true">
 	<?php get_template_part('img/inline', '1.svg');?>
 </div>
 <?php endif;?>

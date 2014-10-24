@@ -1,6 +1,6 @@
 
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1335px" viewBox="138.5 893 2772.5 779" enable-background="new 138.5 893 2772.5 779"
+<svg class="home-background-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="138.5 893 2772.5 779" enable-background="new 138.5 893 2772.5 779"
 	 xml:space="preserve">
 <g>
 	

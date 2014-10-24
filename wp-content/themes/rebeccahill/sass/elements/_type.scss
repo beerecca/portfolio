@@ -27,15 +27,6 @@ textarea {
 	@include font-size(2);
 }
 
-.main-navigation li a {
-	text-transform: uppercase;
-	@include font-size(2);
-	color: #fff !important; //TODO: oh god get rid of this
-	@include breakpoint(small) {
-		color: $color__text-main !important;
-	}
-}
-
 .pull-copy {
 	font-family: $font__head;
 	@include font-size(2.6);
