@@ -1,28 +1,15 @@
+//LAYOUT---------------------------------------------------------------
+
+html {
+	overflow-y: auto; //overrides vendor reset so that home background will work
+}
+
 @include breakpoint(small) {
 	.container-fluid {
 		margin-left: 30rem;
 		margin-right: 1rem;
 		max-width: 1500px;
 	}
-}
-
-
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-}
-
-.byline,
-.updated:not(.published){
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
 }
 
 .page-content,
@@ -37,36 +24,79 @@
 	margin: 0 0 1.5em;
 }
 
-//home page
+
+//HOME PAGE---------------------------------------------------------------
 
 .home .container-fluid {
 	margin-left: 1rem;
 }
 
-.featured  {
-	margin: 0;
-	list-style: none; //TODO: why are these overriding themselves a bajillion times?
+.home-background {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+	background: url("img/bg-home.jpg") no-repeat;
+	background-size: cover;
+}
+
+.home-background-svg {
+	width: 100%;
+}
+
+polygon {
+	transform: translateY(-2000px);//TODO: browser check all transformation -heights, use jquery?
+}//TODO: .home doesn't work, no qualifying classes do. need to sort between this one and the polygon transform in header.scss
+
+.home .site-title {
+	margin-top: 2em;
+	@include breakpoint(small) {
+		margin-top: 3em;
+		max-width: none;
+		width: 90%;
+	}
 }
 
 .home .site-content {
-	max-width: 800px;
+	max-width: 850px;
 	margin: 0 auto;
-}
-
-.home .main-navigation li a {
-	color: #fff !important;
-}
-
-.home p {
-	color: #fff;
-	@include font-size(2.2); //TODO: why won't pt sans let me have a lighter weight
 }
 
 .home .main-navigation {
 	margin-bottom: 1em;
 }
 
-//about page
+.home .main-navigation ul {
+	background-color: rgba(254, 226, 117, 0.4);
+	margin: 0 -25px; //TODO: this might not work in browsers without rems, as that's what the margins are that we're overcoming here.
+}
+
+.home .main-navigation li a {
+	color: #fff !important;
+	@include font-size(3);
+}
+
+.home p {
+	color: #fff;
+	@include font-size(2.4); //TODO: why won't pt sans let me have a lighter weight
+}
+
+.home .pull-copy {
+	@include font-size(3.2);
+}
+
+
+
+
+
+
+
+
+
+//ABOUT PAGE---------------------------------------------------------------
 
 #image_rotate {
     background-image: url("img/me.jpg");
@@ -197,4 +227,8 @@ animation: myfirst 2s;
 
 //TODO: put a default header on all pages, to be overriden with page specific.
 
+.featured  {
+	margin: 0;
+	list-style: none; //TODO: why are these overriding themselves a bajillion times?
+}
 

@@ -82,6 +82,7 @@ var element = document.querySelector( '.me' );
       }, Math.random()*(2000-1000)+500);
     }
     //normal distribution: triangle[i].style.transitionDuration = ((Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1))*(2)+2 + "s";  
+  //TODO: can we make the svgs animate in a bell curve? ie a couple are really fast, most are middling, some are slow?
   }//end triangle
   
   /* JQUERY VERSION
@@ -93,10 +94,49 @@ var element = document.querySelector( '.me' );
 
 };
 
+
+
+
+
 jQuery(document).ready(function($){
 
 //TODO: split into page specific scripts to be enqueued properly. also add to about the site. also refactor into var something = {init: ??}, something.init
 
+
+//Home Page Background
+var homeBackground = function(){
+
+  var $windowWidth = $(window).width(),
+      $windowHeight = $(window).height(),
+      $bodyHeight = $('body').height();
+      $background = $('.home-background'),
+      $svg = $('.home-background-svg');
+
+  if ($windowWidth > $windowHeight) {
+    $background.width($windowWidth);
+    $svg.width($windowWidth);
+    $background.height('auto');
+    $svg.height('auto');
+    $background.css('minHeight', $bodyHeight+20);
+    $svg.css('minHeight', $bodyHeight+20);
+  }
+
+  else if ($windowWidth <= $windowHeight) {
+    $background.height($windowHeight);
+    $svg.height($windowHeight);
+    $background.width('auto');
+    $svg.width('auto');
+    $background.css('minHeight', $bodyHeight+20);
+    $svg.css('minHeight', $bodyHeight+20);
+  }
+
+}
+
+$(window).resize(function(){
+  homeBackground();
+});
+
+homeBackground();
 
 /*From https://github.com/Prinzhorn/skrollr*/
     var s = skrollr.init({forceHeight:false});

@@ -1,5 +1,5 @@
 <?php
-/* This template is used to display the Home page. */
+/* This template is used to display the Home page. TODO: delete this page if not needed*/
 
 get_header(); ?>
 

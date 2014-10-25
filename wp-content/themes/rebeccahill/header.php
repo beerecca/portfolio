@@ -20,22 +20,10 @@
 
 <body <?php body_class(); ?>>
 
-<?php if(is_front_page()):?>
-<div class="home-background" aria-hidden="true">
-	<?php get_template_part('img/inline', '1.svg');?>
-</div>
-<?php endif;?>
-
-<?php if(is_post_type_archive('portfolio')):?>
-<div class="background" aria-hidden="true">
-	<?php get_template_part('img/inline', '2.svg');?>
-</div>
-<?php endif;?>
-
-<?php if(is_home()):?>
-<div class="background" aria-hidden="true">
-	<?php get_template_part('img/inline', '3.svg');?>
-</div>
+<?php if(is_front_page()) :?>
+	<div class="home-background" aria-hidden="true">
+		<?php get_template_part('img/inline', 'home.svg');?>
+	</div>
 <?php endif;?>
 
 <div id="page" class="hfeed site container-fluid">

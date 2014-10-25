@@ -1,22 +1,18 @@
-//LOGO
-.site-title a, .site-title a:visited {
-	text-decoration: none;
-	border-bottom: 0 !important; //TODO: this is weird, check the dev tools, double ups
-}
+
+//SITE TITLE----------------------------------------------------------------------------
+
+h1.site-title a,
+h1.site-title a:visited,
+h1.site-title a:focus,
+h1.site-title a:active,
+h1.site-title a:hover {
+	border-bottom: 0;
+} //TODO: check dev tools, repeating weirdly. try removing the : and its fine. try &? try ordering this file below the type file?
 
 .site-title {
 	margin: 1em auto;
 	max-width: 700px;
 }
-
-.home .site-title {
-	margin-top: 3em;
-	@include breakpoint(small) {
-		max-width: none;
-		width: 80%;
-	}
-}
-
 
 @include breakpoint(small) {
 	.logo {
@@ -28,20 +24,20 @@
 }//TODO: need fallback png as per css tricks using svg
 
 
-//BACKGROUNDS
+//BACKGROUND ANIMATIONS---------------------------------------------------------------
 
 .background {
 	z-index: -1;
-	position: absolute;
+	position: fixed;
+	left: 0;
+	top: 0;
 	height: 375px;
 	width: 100%; //needed to prevent sideways scroll appearing. svg width is declared in the svg.
-	overflow: hidden;
 	text-align: left;
 	background-repeat: no-repeat;
 	@include breakpoint(small) {
 		transform: rotate(270deg) translateX(-1335px);
 		transform-origin: top left;
-		position: fixed;
 		width: 1335px; //everything's backwards now because of the rotation. 100% doesn't work either.
 		background-repeat: repeat-x; //TODO: can we make this work? for huge screens? or fade but only in desktop?
 	}
@@ -63,24 +59,8 @@ polygon {
 	}
 }
 
-.home .background {
-	background-image: url("img/bg1.jpg");
-}
 
-.home-background {
-	z-index: -1;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	overflow: hidden;
-}
-
-.home-background-svg {
-	height: 150%;
-	margin-left: -1150px;
-}
+//FALLBACK BACKGROUNDS---------------------------------------------------------------
 
 .post-type-archive-portfolio .background, 
 .single-portfolio .background {
@@ -92,53 +72,13 @@ polygon {
 	background: url("img/bg3.jpg");
 }
 
-//TODO: need to sort out heights etc? note theres a width inside the svg itself
-//TODO: can we make the svgs animate in a bell curve? ie a couple are really fast, most are middling, some are slow?
-
-/* .home {
-	background: url("img/1.svg");
-	background-repeat: no-repeat;
-	background-size: 768px;
-	@include breakpoint(small) {
-		background: url("img/1_lg.svg");
-		background-repeat: repeat-y;
-		background-attachment: fixed;
-		background-size: 450px;
-	}
-} */
-
-/* .post-type-archive-portfolio, .single-portfolio {
-	background: url("img/bg2_sm.jpg") no-repeat;
-	@include breakpoint(small) {
-		background: url("img/bg2_lg.jpg") no-repeat;
-		background-attachment: fixed;
-		background-size: 500px;
-	}
-} */
-
-/* .blog, .single-post {
-	background: url("img/bg3_sm.jpg") no-repeat;
-	@include breakpoint(small) {
-		background: url("img/bg3_lg.jpg") no-repeat;
-		background-attachment: fixed;
-		background-size: 500px;
-	}
-} */
-
 .page-id-7 {
-	background: url("img/bg4_sm.jpg") no-repeat;
-	@include breakpoint(small) {
-		background: url("img/bg4_lg.jpg") no-repeat;
-		background-attachment: fixed;
-		background-size: 500px;
-	}
+	background: url("img/bg3.jpg");
 }
 
 .page-id-9 {
-	background: url("img/bg5_sm.jpg") no-repeat;
-	@include breakpoint(small) {
-		background: url("img/bg5_lg.jpg") no-repeat;
-		background-attachment: fixed;
-		background-size: 500px;
-	}
+	background: url("img/bg3.jpg");
 }
+
+//TODO: need to sort out heights etc? note theres a width inside the svg itself
+//TODO: why does typekit need to put all those crappy classes in the html element :P

@@ -3,6 +3,10 @@
 
 get_header(); ?>
 
+<div class="background" aria-hidden="true">
+	<?php get_template_part('img/inline', '2.svg');?>
+</div>
+
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
