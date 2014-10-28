@@ -20,19 +20,13 @@
 
 <body <?php body_class(); ?>>
 
-<?php if(is_front_page()) :?>
-	<div class="home-background" aria-hidden="true">
-		<?php get_template_part('img/inline', 'home.svg');?>
-	</div>
-<?php endif;?>
-
 <div id="page" class="hfeed site container-fluid">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rebeccahill' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 		<?php get_template_part('img/inline', 'logo.svg');?>
-		<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="rebeccahill.co.nz"> -->
+		<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="rebeccahill.co.nz"> TODO: svg fallbacks-->
 		</a></h1>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

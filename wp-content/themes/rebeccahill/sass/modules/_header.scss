@@ -36,7 +36,7 @@ h1.site-title a:hover {
 	text-align: left;
 	background-repeat: no-repeat;
 	@include breakpoint(small) {
-		transform: rotate(270deg) translateX(-1335px);
+		transform: rotate(270deg) translateX(-1335px) translateY(-90px);
 		transform-origin: top left;
 		width: 1335px; //everything's backwards now because of the rotation. 100% doesn't work either.
 		background-repeat: repeat-x; //TODO: can we make this work? for huge screens? or fade but only in desktop?
@@ -60,6 +60,12 @@ polygon {
 	}
 }
 
+@include breakpoint(small) {
+	rect {
+		display: none;
+	}
+}
+
 
 //FALLBACK BACKGROUNDS---------------------------------------------------------------
 
@@ -73,12 +79,12 @@ polygon {
 	background: url("img/bg3.jpg");
 }
 
-.page-id-7 {
-	background: url("img/bg3.jpg");
+.page-id-7 .background {
+	background: url("img/bg4.jpg");
 }
 
-.page-id-9 {
-	background: url("img/bg3.jpg");
+.page-id-9 .background {
+	background: url("img/bg5.jpg");
 }
 
 //TODO: need to sort out heights etc? note theres a width inside the svg itself

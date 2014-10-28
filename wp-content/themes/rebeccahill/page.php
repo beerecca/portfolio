@@ -12,6 +12,19 @@
 
 get_header(); ?>
 
+<?php if(is_page('about')) :?>
+	<div class="background" aria-hidden="true">
+		<?php get_template_part('img/inline', '4.svg');?>
+	</div>
+<?php endif;?>
+
+<?php if(is_page('contact')) :?>
+	<div class="background" aria-hidden="true">
+		<?php get_template_part('img/inline', '5.svg');?>
+	</div>
+<?php endif;?>
+
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 

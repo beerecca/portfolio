@@ -48,7 +48,7 @@ html {
 }
 
 polygon {
-	transform: translateY(-2000px);//TODO: browser check all transformation -heights, use jquery?
+	//transform: translateY(-2000px);//TODO: browser check all transformation -heights, use jquery?
 }//TODO: .home doesn't work, no qualifying classes do. need to sort between this one and the polygon transform in header.scss
 
 .home .site-title {
@@ -90,13 +90,6 @@ polygon {
 }
 
 
-
-
-
-
-
-
-
 //ABOUT PAGE---------------------------------------------------------------
 
 #image_rotate {
@@ -117,7 +110,6 @@ polygon {
 	margin-top: 40px;
 	@include font-size(1.4);
 }
-
 
 
 //PORTFOLIO PAGE---------------------------------------------------------------
@@ -148,7 +140,6 @@ polygon {
 		}
 	}
 }
-
 
 .post-type-archive-portfolio article {
 	background-size: 100%;
@@ -244,11 +235,6 @@ polygon {
 	margin: 1.5em 0 1em 0;
 }
 
-.home section {
-	padding-top: 2em;
-	padding-bottom: 1em;
-}
-
 /* section a, section a:visited {
 	color: #433D49;
 	text-decoration: none;
@@ -275,12 +261,6 @@ section li:last-of-type {
 	border-bottom: none;
 }
 
-.home .featured a {
-	float: left;
-	width: 50%;
-	//shape-inside: circle(250px at 50% 50%);
-	//shape-margin: 2px;
-}
 
 .imac, .screenshot {
 	position: absolute;
@@ -291,9 +271,6 @@ section li:last-of-type {
 	padding-top: 25px;
 }
 
-/* .screenshots {
-padding: 1rem;
-} */
 
 .clip {
 	position: absolute;
