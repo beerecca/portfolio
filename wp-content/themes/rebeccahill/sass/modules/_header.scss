@@ -28,7 +28,7 @@ h1.site-title a:hover {
 
 .background {
 	z-index: -1;
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	height: 375px;
@@ -40,6 +40,7 @@ h1.site-title a:hover {
 		transform-origin: top left;
 		width: 1335px; //everything's backwards now because of the rotation. 100% doesn't work either.
 		background-repeat: repeat-x; //TODO: can we make this work? for huge screens? or fade but only in desktop?
+		position: fixed; //on mobile, header needs to scroll away. on desktop it's fixed.
 	}
 }
 

@@ -212,8 +212,17 @@ function url_filtered($fields)
 
 
 /**
- * Allow post re-ordering
+ * Allow post and portfolio re-ordering
  */
 
 add_post_type_support( 'post', 'page-attributes' );
+
+
+function portfolio_order( $query ) {
+    if ( $query->is_post_type_archive('portfolio') && $query->is_main_query() ) {
+        $query->set( 'orderby', 'menu_order' );
+        $query->set( 'order', 'ASC' );
+    }
+}
+add_action( 'pre_get_posts', 'portfolio_order' );
 

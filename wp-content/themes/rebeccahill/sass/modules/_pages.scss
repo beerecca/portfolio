@@ -16,7 +16,7 @@ html {
 .entry-content,
 .entry-summary,
 .screenshots {
-	margin: 1.5em 0 0;
+	margin: 0.5em 0 0; //TODO: don't change, needs to be there for portfolio hovers
 }
 
 .page-links {
@@ -70,8 +70,9 @@ polygon {
 }
 
 .home .main-navigation ul {
-	background-color: rgba(254, 226, 117, 0.4);
-	margin: 0 -25px; //TODO: this might not work in browsers without rems, as that's what the margins are that we're overcoming here.
+	border-bottom: 10px solid #FEE275; //TODO: use the mixin, for all pages
+	//margin: 0 -25px; //TODO: this might not work in browsers without rems, as that's what the margins are that we're overcoming here.
+	padding: 20px;
 }
 
 .home .main-navigation li a {
@@ -116,6 +117,119 @@ polygon {
 	margin-top: 40px;
 	@include font-size(1.4);
 }
+
+
+
+//PORTFOLIO PAGE---------------------------------------------------------------
+
+.post-type-archive-portfolio .article-wrapper {
+	margin-bottom: 4%; //TODO: check all gaps on all screen sizes.
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	overflow: hidden;
+	@include breakpoint(medium) {
+		padding-bottom: 48%;
+		width: 48%;
+		margin-right: 4%;
+		float: left;
+		&:nth-of-type(2n) {
+			margin-right: 0;
+		}
+	}
+	@include breakpoint(large) {
+		padding-bottom: 30.66666%;
+		width: 30.66666%;
+		&:nth-of-type(2n) {
+			margin-right: 4%;
+		}
+		&:nth-of-type(3n) {
+			margin-right: 0;
+		}
+	}
+}
+
+
+.post-type-archive-portfolio article {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	padding: 4%;
+	.entry-header {
+		width: 43%;
+		&:first-line {
+			font-weight: 700;
+		}
+		a {
+			color: #fff;
+			border-bottom: 0;
+			&:hover {
+				color: #fff;
+				border-bottom: 2px solid #fff;
+			}
+		}
+	}
+	p {
+		color: #fff;
+	}
+	button {
+		border-color: #fff;
+		color: #fff;
+	}
+	.blend-bg {
+		position: absolute;
+		mix-blend-mode: darken;
+		margin: -4%;
+	}
+}
+
+//Animations
+.post-type-archive-portfolio {
+	article {
+		transition: background-size 0.5s;
+	}
+
+	.entry-header {
+		transform: translateY(190px);
+		transition: transform 0.4s;
+	}
+
+	.entry-content {
+		transform: translateY(300px);
+		opacity: 0;
+		transition: transform 0.6s, opacity 0.6s;
+	}
+	.blend-bg {
+		transition: bottom 0.6s; 
+		bottom: -180px;
+	}
+}
+
+.post-type-archive-portfolio article:hover {
+	background-size: 120%;
+	.entry-header,
+	.entry-content {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	.blend-bg {
+		bottom: 4%;
+		mix-blend-mode: darken;
+	}
+}
+
+
+
+
+
+
 //TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
 //TODO: remove bootstrapgrid.scss file if not using it
 //TODO: need a default background for 404 and style guide pages for example

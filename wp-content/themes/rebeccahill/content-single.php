@@ -7,6 +7,10 @@ $screenshot = get_field('screenshot');
 $mobScreenshot = get_field('mobile_screenshot');
 ?>
 
+<div class="background" aria-hidden="true">
+	<?php get_template_part('img/inline', '2.svg');?>
+</div>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
