@@ -8,9 +8,17 @@ html {
 	.container-fluid {
 		margin-left: 30rem;
 		margin-right: 1rem;
-		max-width: 1500px;
+		max-width: 1400px;
 	}
 }
+
+@include breakpoint(large) {
+	.container-fluid {
+		padding-left: 150px;
+		padding-right: 150px;
+	}
+}
+
 
 .page-content,
 .entry-content,
@@ -39,7 +47,7 @@ html {
 	bottom: 0;
 	right: 0;
 	overflow: hidden;
-	background: url("img/bg-home.jpg") no-repeat;
+	background: url("img/bg1.jpg") no-repeat;
 	background-size: cover;
 }
 
@@ -47,8 +55,11 @@ html {
 	width: 100%;
 }
 
-polygon {
-	//transform: translateY(-2000px);//TODO: browser check all transformation -heights, use jquery?
+.home polygon {
+	transform: translateY(-1500px);//TODO: browser check all transformation -heights, use jquery?
+	@include breakpoint(small) {
+		transform: translateY(-2000px);
+	}
 }//TODO: .home doesn't work, no qualifying classes do. need to sort between this one and the polygon transform in header.scss
 
 .home .site-title {
@@ -70,8 +81,9 @@ polygon {
 }
 
 .home .main-navigation ul {
-	border-bottom: 10px solid #FEE275; //TODO: use the mixin, for all pages
+	//border-bottom: 10px solid #FEE275; //TODO: use the mixin, for all pages
 	//margin: 0 -25px; //TODO: this might not work in browsers without rems, as that's what the margins are that we're overcoming here.
+	//background-color: rgba(255, 255, 255, 0.24);
 	padding: 20px;
 }
 
@@ -82,6 +94,7 @@ polygon {
 
 .home p {
 	color: #fff;
+	line-height: 2em;
 	@include font-size(2.4); //TODO: why won't pt sans let me have a lighter weight
 }
 
@@ -95,9 +108,19 @@ polygon {
 #image_rotate {
     background-image: url("img/me.jpg");
     border-radius: 50%;
-    width: 100%;
     background-repeat: no-repeat;
-    background-size: 100%; 
+    background-size: 100%;
+
+    max-width: 300px;
+	width: 100%;
+	margin: 20px auto;
+	-webkit-shape-outside: circle(50% at 50.1% 50.1%);
+	shape-outside: circle(50% at 50.1% 50.1%);
+	
+	background-color: lighten($color-about, 45%);
+	background-blend-mode: darken;
+	position: relative;	
+	z-index: 1;
 
 	&:before {
 		content: "";
@@ -106,15 +129,44 @@ polygon {
 	}
 }
 
-.about-site {
-	margin-top: 40px;
-	@include font-size(1.4);
+@include breakpoint(medium) {
+	#image_rotate {
+		width: 50%;
+		float: left;
+		margin: 20px;
+	}
+	.page-id-7 .entry-content>p:nth-of-type(-n+2) {
+		text-align: left;
+	}
 }
 
 
-//PORTFOLIO PAGE---------------------------------------------------------------
 
-.post-type-archive-portfolio .article-wrapper {
+
+/* .page-id-7 .entry-content>p:first-of-type {
+	position: relative;	
+}
+
+.page-id-7 .entry-content>p:first-of-type:before {
+	content: "";
+	display: block;
+	position: absolute;
+	border: 2px solid #FFF;
+	width: 27%;
+	top: -2px;
+	bottom: -2px;
+	right: 0;
+} */
+
+.page-id-7 .entry-content h2 {
+	padding-top: 20px;
+}
+
+
+//PORTFOLIO AND THOUGHTS ARCHIVE PAGES---------------------------------------------------------------
+
+.post-type-archive-portfolio .article-wrapper,
+.blog .article-wrapper {
 	margin-bottom: 4%; //TODO: check all gaps on all screen sizes.
 	position: relative;
 	width: 100%;
@@ -129,7 +181,7 @@ polygon {
 			margin-right: 0;
 		}
 	}
-	@include breakpoint(large) {
+/* 	@include breakpoint(large) {
 		padding-bottom: 30.66666%;
 		width: 30.66666%;
 		&:nth-of-type(2n) {
@@ -138,10 +190,11 @@ polygon {
 		&:nth-of-type(3n) {
 			margin-right: 0;
 		}
-	}
+	} */
 }
 
-.post-type-archive-portfolio article {
+.post-type-archive-portfolio article,
+.blog article {
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -152,15 +205,20 @@ polygon {
 	width: 100%;
 	height: 100%;
 	text-align: left;
-	padding: 4%;
+	padding: 8%;
+	.thumb {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+.post-type-archive-portfolio article {
 	.entry-header {
-		width: 43%;
-		&:first-line {
-			font-weight: 700;
-		}
 		a {
 			color: #fff;
-			border-bottom: 0;
 			&:hover {
 				color: #fff;
 				border-bottom: 2px solid #fff;
@@ -169,56 +227,165 @@ polygon {
 	}
 	p {
 		color: #fff;
+		line-height: 1.5em;
 	}
 	button {
 		border-color: #fff;
 		color: #fff;
 	}
-	.blend-bg {
-		position: absolute;
-		mix-blend-mode: darken;
-		margin: -4%;
-	}
 }
+
+
 
 //Animations
 .post-type-archive-portfolio {
 	article {
-		transition: background-size 0.5s;
+		background: linear-gradient(to bottom, #747474 50%, #436daf 100%);
+		transition: background 0.5s;
 	}
 
-	.entry-header {
-		transform: translateY(190px);
-		transition: transform 0.4s;
+	.entry-header{
+		top: 72%;
+		position: absolute;
+		transition: top 0.6s;
+		z-index: 10;
 	}
 
 	.entry-content {
-		transform: translateY(300px);
-		opacity: 0;
-		transition: transform 0.6s, opacity 0.6s;
+		top: 100%;
+		position: absolute;
+		transition: top 0.6s; //Note, if you transition a transform (rather than top) over the blend mode it causes jumpy bugs :P
+		z-index: 10;
+		padding-right: 8%;
 	}
-	.blend-bg {
-		transition: bottom 0.6s; 
-		bottom: -180px;
+
+	.thumb {
+		mix-blend-mode: overlay; //multiply, luminosity and color-burn also look good depending on gradient colors. can also transition blend modes if desired.
+		max-width: 120%;
+		width: 100%;
+		transition: width 0.6s;
 	}
 }
 
 .post-type-archive-portfolio article:hover {
-	background-size: 120%;
-	.entry-header,
-	.entry-content {
-		transform: translateY(0px);
-		opacity: 1;
+	background: linear-gradient(to bottom, #3E6D99 10%, #19396C 90%);
+	
+	.entry-header {
+		top: 7%;
 	}
-	.blend-bg {
-		bottom: 4%;
-		mix-blend-mode: darken;
+	.entry-content {
+		top: 21%;
+	}
+	.thumb {
+		width: 120%; //Despite adobe blog saying you can't animate content that has a blend mode on it, this works! Wasn't working when it was a bg image.
 	}
 }
 
+//For items with titles that go onto two lines
+.post-type-archive-portfolio .post-47:hover .entry-content {
+	top: 32%;
+}
+
+//TODO: write an article re blend modes. listing gotchas. stacking contexts also relevant :P isolate etc for text.
 
 
+//PORTFOLIO DETAIL PAGE---------------------------------------------------------------
 
+.shot-wrapper {
+	position: relative;
+	margin: 3rem 0;
+}
+
+.imac {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 800px;
+}
+
+.screenshot {
+	position: absolute;
+	left: 0;
+	padding: 0 4%;
+	width: 100%;
+	max-width: 800px;
+}
+
+.clip {
+	position: absolute;
+	overflow: hidden;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 62%;
+	width: 100%;
+	max-width: 800px;
+	margin-top: 4%;
+}
+
+//TODO: responsive type
+
+//THOUGHTS PAGE---------------------------------------------------------------
+
+.blog article {
+	padding: 1em;
+	padding-bottom: 0;
+	margin-top: 1em;
+	background-color: lighten($color-thoughts, 50%);
+	//background: linear-gradient(to bottom left, #5776A8 0%,#783C82 100%);
+	a,
+	a:hover,
+	.entry-content,
+	button {
+		//color: #fff;
+		//border-color: #fff;
+	}
+}
+
+.blog .article-wrapper {
+	padding-bottom: 35%; //TODO: didn't work
+}
+
+
+//CONTACT PAGE---------------------------------------------------------------
+
+.details {
+    border-radius: 50%;
+    max-width: 300px;
+	width: 100%;
+	margin: 20px auto;
+	-webkit-shape-outside: circle(50% at 50.1% 50.1%);
+	shape-outside: circle(50% at 50.1% 50.1%);
+	background-color: lighten($color-contact, 30%);
+	position: relative;	
+
+	&:before {
+		content: "";
+		display: block;
+		padding-top: 100%;
+	}
+	h2 {
+		position: absolute;
+		top: 32%;
+		font-weight: 300;
+		@include font-size(2.4);
+		line-height: 1.8em;
+	}
+}
+
+@include breakpoint(medium) {
+	.details {
+		width: 50%;
+		float: left;
+		margin: 20px;
+	}
+	.page-id-9 .entry-content>p {
+		text-align: left;
+		&:first-of-type {
+			margin-top: 4%;
+		}
+	}
+
+}
 
 
 //TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
@@ -262,23 +429,7 @@ section li:last-of-type {
 }
 
 
-.imac, .screenshot {
-	position: absolute;
-	left: 0;
-}
 
-.screenshot {
-	padding-top: 25px;
-}
-
-
-.clip {
-	position: absolute;
-width: 96%;
-height: 340px;
-//-webkit-clip-path: inset(0 0, 100px 0px, 100px 300px, 0 300px);
-overflow: hidden;
-}
 
 
 .test {

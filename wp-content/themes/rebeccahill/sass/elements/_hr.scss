@@ -19,7 +19,7 @@ hr {
 
 //Correct theme colours for first paragraph borders
 
-@mixin first-p($color) {
+/* @mixin first-p($color) {
 	.entry-content>p:first-of-type,
 	.first-p {
 		border-top: 2px solid $color;
@@ -27,8 +27,9 @@ hr {
 	}
 }
 
-.single-portfolio {
-	@include first-p($color-projects);
+.single-portfolio .intro {
+	border-top: 2px solid $color-projects;
+	border-bottom: 2px solid $color-projects;
 }
 
 .single-post {
@@ -37,4 +38,4 @@ hr {
 
 .page-id-7 {
 	@include first-p($color-about);
-}
+} */

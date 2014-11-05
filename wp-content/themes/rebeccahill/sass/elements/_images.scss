@@ -7,3 +7,6 @@ figure {
 	margin: 0;
 }
 
+.single-portfolio .entry-content p img {
+	background-color: lighten($color-projects, 40%); //TODO: variabilize this color
+}

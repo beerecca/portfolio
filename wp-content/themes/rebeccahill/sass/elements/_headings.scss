@@ -2,13 +2,18 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	font-family: $font__head;
 	font-style: normal;
-	font-weight: 300;
+	font-weight: 600;
 }
 
 h1 {
 	@include font-size(4);
-	line-height: 1.4em;
-	margin-bottom: .5em;
+	font-weight: 300;
+	line-height: 1.2em;
+	margin-bottom: .25em;
+	//color: #949494; //TODO: variabilize
+	@include breakpoint(small) {
+		@include font-size(6)
+	}
 }
 
 h2 {
@@ -20,13 +25,13 @@ h2 {
 h3 {
 	@include font-size(1.4);
 	text-transform: uppercase;
-	font-weight: 600;
 	line-height: 1.4em;
 	margin-bottom: .5em;
 }
 
 h4 {
 	margin-bottom: .5em;
+	font-weight: 300;
 }
 
 

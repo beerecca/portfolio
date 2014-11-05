@@ -4,3 +4,23 @@ footer {
 		text-decoration: none;
 	}
 }
+@include breakpoint(small) { 
+	.site-info {
+		position: fixed;
+		left: 70px;
+		bottom: 10px;
+		a {
+			color: #fff;
+		}
+	}
+	.home .site-info {
+		position: static;
+		a {
+			color: $color-home;
+			&:hover {
+				color: darken($color-home, 20%)
+			}
+		}
+	}
+}
+

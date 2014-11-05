@@ -18,12 +18,12 @@ textarea {
 	@include font-size(1.4);
 }
 
-.single .entry-content>p:first-of-type,
+.single-post .entry-content>p:first-of-type,
+.single .intro p,
 .first-p {
-	//text-align: center;
-	border-top: 1px solid $color__brand;
-	border-bottom: 1px solid $color__brand;
+	font-family: $font__head;
 	padding: 1em 0;
+	margin-bottom: 0;
 	@include font-size(2);
 }
 
@@ -51,16 +51,17 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	padding-left: 2em;
+	padding-left: 1.5em;
 	line-height: 1.8em;
 	font-family: $font__head;
 	font-style: italic;
-	margin: 2.5em auto 1.5em auto;
+	text-align: left;
 	@include breakpoint(small) {
-		width: 80%;
+		width: 60%;
+		@include font-size(2.2);
 	}
 
-	&:before {
+	/* &:before {
 		content: '“';
 		font-family: $font__main;
 		font-weight: 900;
@@ -72,12 +73,12 @@ blockquote {
 		@include breakpoint(small) {
 			left: 38rem;
 		}
-	}
+	} */
 }
 
 @mixin blockquotes($class, $color-pg) {
 	.#{$class} blockquote {
-		border-left: 10px solid $color-pg;
+		border-left: 4px solid $color-pg;
 		color: $color-pg;
 		&:before {
 			color: lighten($color-pg, 40%);
@@ -89,6 +90,7 @@ blockquote {
 	@include blockquotes($class, $color-pg);
 }
 
+//TODO: add additional portfolio items, eg tikipici
 
 pre {
 	background: $color__background-pre;

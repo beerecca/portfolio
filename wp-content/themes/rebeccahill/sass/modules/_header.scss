@@ -12,12 +12,24 @@ h1.site-title a:hover {
 .site-title {
 	margin: 1em auto;
 	max-width: 700px;
+	font-size: 4rem;
 }
+
+@mixin logo($class, $color-pg) {
+		.#{$class} .logo {
+			fill: $color-pg;
+		}
+	}
 
 @include breakpoint(small) {
 	.logo {
 		fill: #000;
 	}
+
+	@each $class, $color-pg in $themes {
+		@include logo($class, $color-pg);
+	}
+
 	.home .logo {
 		fill: #fff;
 	}
@@ -54,9 +66,10 @@ polygon {
 .moove {
 	transition-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
 	transition-delay: 0.5s;
-	transform: translateY(0px);
+	transform: translateY(0px) !important;
 	@include breakpoint(small) {
-		transform: translateX(0px);
+		transform: translateX(0px) !important;
+		transform: translateY(0px) !important; //need the !important's so it works for the home page too
 	}
 }
 
@@ -79,7 +92,7 @@ polygon {
 	background: url("img/bg3.jpg");
 }
 
-.page-id-7 .background {
+.page .background {
 	background: url("img/bg4.jpg");
 }
 

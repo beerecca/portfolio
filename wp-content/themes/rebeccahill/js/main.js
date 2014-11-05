@@ -79,7 +79,7 @@ var element = document.querySelector( '.me' );
     function setDelay(i) {
       setTimeout(function(){
         triangle[i].classList.add('moove');
-      }, Math.random()*(2000-1000)+500);
+      }, Math.random()*(2000-1000));
     }
     //normal distribution: triangle[i].style.transitionDuration = ((Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1))*(2)+2 + "s";  
   //TODO: can we make the svgs animate in a bell curve? ie a couple are really fast, most are middling, some are slow?
@@ -102,6 +102,8 @@ jQuery(document).ready(function($){
 
 //TODO: split into page specific scripts to be enqueued properly. also add to about the site. also refactor into var something = {init: ??}, something.init
 
+//TODO: minify contact form javascript :P check all outputs
+//TODO: spellcheck and check all links
 
 //Home Page Background
 var homeBackground = function(){
@@ -132,14 +134,34 @@ var homeBackground = function(){
 
 }
 
-$(window).resize(function(){
+/*$(window).resize(function(){
   homeBackground();
-});
+});*/
 
 homeBackground();
+$(window).on('resize', homeBackground);//TODO: check this still works, if so, remove commented above
 
+
+
+
+//TODO: fix comments in this js file, also this isn't working on resize properly. somehow reinitiliaze skrollr on resize?
+    var screenshotScroll = function(){
+      var distance = Math.round($('.screenshot').height() - $('.clip').height());
+      $('.screenshot').attr('data-10p-top', 'transform:translateY(-'+distance+'px)');
+      //console.log($('.screenshot').height() + " = screenshot height, "+$('.clip').height()+ " = clip height, so "+distance+" = distance (screnshot minus clip height)");
+    }
+    screenshotScroll();
+ 
 /*From https://github.com/Prinzhorn/skrollr*/
-    var s = skrollr.init({forceHeight:false});
+    var s = skrollr.init({
+      forceHeight:false
+    });
+
+$(window).on('resize', function(){
+      screenshotScroll();
+      s.refresh($('.screenshot'));
+    }); //TODO: damn this doesn't appear to be working consistently
+
 
 
 /*Modified from http://stackoverflow.com/questions/14505958/image-changes-depending-on-the-position-of-the-mouse*/

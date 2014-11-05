@@ -23,7 +23,20 @@
 	}
 
 	.comment-body {
-		border-bottom: 2px solid $color-thoughts;
+		//border-bottom: 2px solid $color-thoughts;
+		background-color: rgba(113, 63, 150, 0.1); //TODO: should be variable? Also on thoughts archive
+		padding: 1em;
+		padding-top: 0.4em;
+		margin: 2em 0;
+	}
+
+	.children .comment-body {
+		background-color: transparent;
+		padding: 0 1em;
+	}
+
+	.reply {
+		margin-top: -1em; 
 	}
 
 	.comment-metadata a {
@@ -39,4 +52,4 @@
 	}
 }
 
-/* TODO: can i put some code in that says if typekit hasn't loaded in 2secs, just load the site anyway? */
+/* TODO: can i put some code in that says if typekit hasn't loaded in 2secs, just load the site anyway? yes async option in typekit*/

@@ -11,8 +11,16 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content <?php if (get_field('right_column')) { echo "col-md-6"; }?>">
+	<div class="entry-content">
+
+			<?php if (is_page('about')): ?>
+				<div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/acro.gif"></div>
+				<!-- <div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/dystopiangif.gif"></div> -->
+			<?php endif ?>
+
 		<?php the_content(); ?>
+
+			
 		<?php the_post_thumbnail(); ?>
 		<?php
 			wp_link_pages( array(
@@ -24,11 +32,8 @@
 
 	<?php if (get_field('right_column')): ?>
 	
-		<div class="col-md-6">
-			<?php if (is_page('about')): ?>
-				<div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/acro.gif"></div>
-				<!-- <div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/dystopiangif.gif"></div> -->
-			<?php endif ?>
+		<div>
+			
 			<?php the_field('right_column')?>
 		</div> 
 

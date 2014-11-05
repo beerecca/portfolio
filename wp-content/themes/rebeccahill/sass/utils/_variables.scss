@@ -20,7 +20,7 @@ $color__border-input: #BDBDBD;
 $color__border-abbr: #666;
 
 
-$color__brand: #404957;
+$color__brand: #64bb43;
 
 
 $font__main: "pt-sans", Arial, sans-serif;
@@ -41,11 +41,12 @@ $color-contact: #e78468;
 
 
 $themes: (
+	page: $color-about,
 	home: $color-home,
 	post-type-archive-portfolio: $color-projects,
 	single-portfolio: $color-projects,
 	blog: $color-thoughts, 
 	single-post: $color-thoughts,
-	page-id-7: $color-about,
-	page-id-9: $color-contact
+	page-id-7: $color-about, //TODO: can i delete this?
+	page-id-9: $color-contact,
 ) !default;

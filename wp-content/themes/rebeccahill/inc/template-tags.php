@@ -52,8 +52,8 @@ function rebeccahill_post_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'rebeccahill' ); ?></h1>
 		<div class="nav-links entry-meta">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="icon-arrow-left"></span>%title', 'Previous post link', 'rebeccahill' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '<span class="icon-arrow-right"></span><p>%title</p>', 'Next post link',     'rebeccahill' ) );
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="icon-arrow-left"></span>Previous', 'Previous post link', 'rebeccahill' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '<span class="icon-arrow-right"></span><p>Next</p>', 'Next post link',     'rebeccahill' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -68,7 +68,7 @@ if ( ! function_exists( 'rebeccahill_posted_on' ) ) :
 function rebeccahill_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,

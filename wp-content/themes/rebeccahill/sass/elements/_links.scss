@@ -15,7 +15,7 @@
 	.#{$class} h2 a,
 	.#{$class} h3 a {
 				text-decoration: none;
-				border-bottom: 2px solid $color-pg;
+				//border-bottom: 2px solid $color-pg;
 				&:hover,
 				&:focus,
 				&:active {
@@ -26,6 +26,13 @@
 
 @each $class, $color-pg in $themes {
 	@include links($class, $color-pg);
+}
+
+.nav-links a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 /* TODO: maybe check exported css to make sure its not bloated */

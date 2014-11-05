@@ -52,31 +52,116 @@
 		}
 	}
 	a {
-		display: block;
 		text-decoration: none;
 	}
 
-	.current_page_item a,
-	.current-menu-item a {
+}
+
+.current-menu-item a,
+.current_page_item a,
+.current_page_parent a {
+	border-bottom: 2px solid #fff;
+}
+.main-navigation li a:hover {
+	color: #fff;
+}
+
+
+@mixin nav($class, $color-pg) {
+	.#{$class} .current-menu-item a,
+	.#{$class} .current_page_item a,
+	.#{$class} .current_page_parent a {
+		border-bottom: 4px solid $color-pg;
+	}
+	.#{$class} .main-navigation li a:hover {
+		color: $color-pg !important;
 	}
 }
+
+@include breakpoint(small) {
+	@each $class, $color-pg in $themes {
+		@include nav($class, $color-pg);
+	}
+}
+
 
 .main-navigation li a {
 	text-transform: uppercase;
 	@include font-size(2);
-	color: #fff !important; //TODO: oh god get rid of this
+	color: #fff !important; //TODO: oh god get rid of this, and the others above
 	@include breakpoint(small) {
 		color: $color__text-main !important;
 	}
 }
 
 
-@include breakpoint(small) {
+@include breakpoint(medium) {
+	.main-navigation ul {
+		position: relative;
+	}
+	.main-navigation ul:before {
+		content: "";
+		display: block;
+		position: absolute;
+		border: 1px solid #000;
+		top: 17px;
+		left: -26px;
+		right: -26px;
+		z-index: -1;
+	}
 	.main-navigation li {
-		display: inline-block;//TODO: flex?
-		margin-right: 40px;
+		display: inline-block;
+		background-color: #fff;
+		margin-left: -6px;
+		padding-right: 40px;
+		padding-left: 15px;
+		&:last-of-type {
+			padding-right: 15px;
+		}
+	}
+	.home .main-navigation li {
+		background-color: transparent;
+	}
+	.home .main-navigation ul:before {
+		z-index: 1;
+		width: 13%;
+		top: 45px
+	}
+	.home .main-navigation ul:after {
+		content: "";
+		display: block;
+		position: absolute;
+		border: 1px solid $color-home;
+		top: 45px;
+		right: -26px;
+		width: 13%;
 	}
 }
+
+@include breakpoint(large) {
+	.main-navigation ul:before {
+		left: -145px;
+		right: -145px;
+	}
+	.home .main-navigation ul:before,
+	.home .main-navigation ul:after {
+		width: 25%;
+	}
+	.home .main-navigation ul:after {
+		right: -136px;
+	}
+}
+
+@mixin line($class, $color-pg) {
+	.#{$class} .main-navigation ul:before {
+		border-color: $color-pg;
+	}
+}
+
+@each $class, $color-pg in $themes {
+	@include line($class, $color-pg);
+}
+
 
 .site-main .comment-navigation,
 .site-main .paging-navigation,
