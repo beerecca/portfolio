@@ -98,7 +98,7 @@ add_action( 'widgets_init', 'rebeccahill_widgets_init' );
  */
 
 // TypeKit
-wp_enqueue_script( 'typekit', '//use.typekit.net/rdr7hul.js');
+wp_enqueue_script( 'typekit', '//use.typekit.net/euj7roz.js');
 
 function typekit_inline() {
 	  if ( wp_script_is( 'typekit', 'done' ) ) { ?>
@@ -106,6 +106,31 @@ function typekit_inline() {
 	<?php }
 }
 add_action( 'wp_head', 'typekit_inline' );
+
+//Note this typekit package contains PT Sans Regular, Bold, Italic
+//and Adelle Thin (100), Regular (400) and Semibold (600)
+
+//If Typekit is taking ages and blocking rendering, try the async way as below.
+//Also will need to visibility hide text until Typekit loads to prevent FOUT
+//Or until timeout happens and Typekit is unsuccessful
+//http://help.typekit.com/customer/portal/articles/6852
+
+/*function typekit_inline() {?>
+
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'euj7roz',
+      scriptTimeout: 3000
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+<?php }
+add_action( 'wp_head', 'typekit_inline' );
+*/
+
 
 
 function rebeccahill_scripts() {

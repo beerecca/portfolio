@@ -13,6 +13,20 @@ h1.site-title a:hover {
 	margin: 1em auto;
 	max-width: 700px;
 	font-size: 4rem;
+	overflow: hidden;
+}
+
+.logo {
+	width: 144%;
+}
+
+//Fallback for the svg logo using Modernizr
+.logo-black {
+	display: none;
+}
+
+.no-inlinesvg .logo-black {
+	display: block;
 }
 
 @mixin logo($class, $color-pg) {
@@ -22,8 +36,12 @@ h1.site-title a:hover {
 	}
 
 @include breakpoint(small) {
+	.site-title {
+		overflow: visible;
+	}
 	.logo {
 		fill: #000;
+		width: 100%;
 	}
 
 	@each $class, $color-pg in $themes {
@@ -33,7 +51,7 @@ h1.site-title a:hover {
 	.home .logo {
 		fill: #fff;
 	}
-}//TODO: need fallback png as per css tricks using svg
+}
 
 
 //BACKGROUND ANIMATIONS---------------------------------------------------------------
@@ -41,6 +59,7 @@ h1.site-title a:hover {
 .background {
 	z-index: -1;
 	position: absolute;
+	overflow: hidden;
 	left: 0;
 	top: 0;
 	height: 375px;
@@ -92,7 +111,8 @@ polygon {
 	background: url("img/bg3.jpg");
 }
 
-.page .background {
+.page .background,
+.error404 .background {
 	background: url("img/bg4.jpg");
 }
 
@@ -101,4 +121,3 @@ polygon {
 }
 
 //TODO: need to sort out heights etc? note theres a width inside the svg itself
-//TODO: why does typekit need to put all those crappy classes in the html element :P

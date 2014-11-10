@@ -42,11 +42,11 @@ $color-contact: #e78468;
 
 $themes: (
 	page: $color-about,
+	error404: $color-about,
 	home: $color-home,
 	post-type-archive-portfolio: $color-projects,
 	single-portfolio: $color-projects,
 	blog: $color-thoughts, 
 	single-post: $color-thoughts,
-	page-id-7: $color-about, //TODO: can i delete this?
 	page-id-9: $color-contact,
 ) !default;

@@ -7,11 +7,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	@include font-size(4);
-	font-weight: 300;
+	font-weight: 100;
 	line-height: 1.2em;
 	margin-bottom: .25em;
-	//color: #949494; //TODO: variabilize
-	@include breakpoint(small) {
+	@include breakpoint(medium) {
 		@include font-size(6)
 	}
 }
@@ -31,7 +30,8 @@ h3 {
 
 h4 {
 	margin-bottom: .5em;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 
+//TODO: fix padding and font size on projects boxes when screen is really wide 1500px

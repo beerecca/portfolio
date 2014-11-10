@@ -55,7 +55,7 @@ grunt.initConfig({
           expand: true,
           cwd: 'img/original',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'img/'
+          dest: 'img'
         }]
       }
   },

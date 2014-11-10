@@ -29,13 +29,13 @@
 
 	<?php if (get_the_post_thumbnail()) : ?>
 		<a href="<?php the_permalink()?>">
-			<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(),'large')[0]?>" class="thumb">
+			<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(),'large')[0]?>" class="thumb" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)?>">
 		</a>
 	<?php endif;?>
 
 	</article><!-- #post-## -->
 
 </div>
-<!-- TODO: remove featured tickboxes from projects, not needed now the home has changed 
+<!-- 
 TODO: make sure whole projects box is clickable
-TODO: make sure underline on nav appears in all correct places-->
+-->

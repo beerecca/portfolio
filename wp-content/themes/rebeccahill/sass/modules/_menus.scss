@@ -91,6 +91,7 @@
 	color: #fff !important; //TODO: oh god get rid of this, and the others above
 	@include breakpoint(small) {
 		color: $color__text-main !important;
+		font-weight: 600;
 	}
 }
 
@@ -125,14 +126,14 @@
 	.home .main-navigation ul:before {
 		z-index: 1;
 		width: 13%;
-		top: 45px
+		top: 21px
 	}
 	.home .main-navigation ul:after {
 		content: "";
 		display: block;
 		position: absolute;
 		border: 1px solid $color-home;
-		top: 45px;
+		top: 21px;
 		right: -26px;
 		width: 13%;
 	}

@@ -7,6 +7,15 @@
  * @package Rebecca Hill
  */
 ?><!DOCTYPE html>
+<!--
+        _       _           _   _ 
+       | |     | |         (_) | |
+   ___ | |__   | |__   __ _ _  | |
+  / _ \| '_ \  | '_ \ / _` | | |_|
+ | (_) | | | | | | | | (_| | |  _
+  \___/|_| |_| |_| |_|\__,_|_| (_) 
+
+-->
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -25,8 +34,8 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<?php get_template_part('img/inline', 'logo.svg');?>
-		<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.svg" alt="rebeccahill.co.nz"> TODO: svg fallbacks-->
+			<?php get_template_part('img/inline', 'logo.svg');?>
+		 	<img class="logo-black" src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo-black.png" alt="rebeccahill.co.nz">
 		</a></h1>
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

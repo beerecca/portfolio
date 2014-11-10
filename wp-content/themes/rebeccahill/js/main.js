@@ -134,12 +134,8 @@ var homeBackground = function(){
 
 }
 
-/*$(window).resize(function(){
-  homeBackground();
-});*/
-
 homeBackground();
-$(window).on('resize', homeBackground);//TODO: check this still works, if so, remove commented above
+$(window).on('resize', homeBackground);
 
 
 

@@ -79,7 +79,7 @@ function rebeccahill_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'rebeccahill' ),
+		_x( '%s', 'post date', 'rebeccahill' ),
 		$time_string
 	);
 

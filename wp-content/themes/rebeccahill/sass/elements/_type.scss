@@ -18,9 +18,8 @@ textarea {
 	@include font-size(1.4);
 }
 
-.single-post .entry-content>p:first-of-type,
-.single .intro p,
-.first-p {
+.single .entry-content>p:first-of-type,
+.page .entry-content>p:first-of-type {
 	font-family: $font__head;
 	padding: 1em 0;
 	margin-bottom: 0;
@@ -30,15 +29,13 @@ textarea {
 .pull-copy {
 	font-family: $font__head;
 	@include font-size(2.6);
-	font-weight: 200;
+	font-weight: 100;
 }
 
 p {
 	margin-bottom: 1.5em;
 }
 //TODO: ftf put messages about crappy bits on the actual site - eg Note there would normally have to be some filtering/moderation
-//TODO: test all links
-//TODO: put year/month on projects
 
 //Special kinds of copy
 
@@ -60,20 +57,6 @@ blockquote {
 		width: 60%;
 		@include font-size(2.2);
 	}
-
-	/* &:before {
-		content: '“';
-		font-family: $font__main;
-		font-weight: 900;
-		@include font-size(20);
-		position: absolute;
-		left: 0px;
-		z-index: -1;
-		margin-top: 50px;
-		@include breakpoint(small) {
-			left: 38rem;
-		}
-	} */
 }
 
 @mixin blockquotes($class, $color-pg) {
@@ -90,7 +73,7 @@ blockquote {
 	@include blockquotes($class, $color-pg);
 }
 
-//TODO: add additional portfolio items, eg tikipici
+//TODO: finish joshuas and add those screenshots
 
 pre {
 	background: $color__background-pre;

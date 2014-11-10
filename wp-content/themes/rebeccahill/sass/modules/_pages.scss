@@ -37,6 +37,7 @@ html {
 
 .home .container-fluid {
 	margin-left: 1rem;
+	max-width: none;
 }
 
 .home-background {
@@ -60,10 +61,9 @@ html {
 	@include breakpoint(small) {
 		transform: translateY(-2000px);
 	}
-}//TODO: .home doesn't work, no qualifying classes do. need to sort between this one and the polygon transform in header.scss
+}
 
 .home .site-title {
-	margin-top: 2em;
 	@include breakpoint(small) {
 		margin-top: 3em;
 		max-width: none;
@@ -72,30 +72,23 @@ html {
 }
 
 .home .site-content {
-	max-width: 850px;
+	max-width: 680px;
 	margin: 0 auto;
-}
-
-.home .main-navigation {
-	margin-bottom: 1em;
-}
-
-.home .main-navigation ul {
-	//border-bottom: 10px solid #FEE275; //TODO: use the mixin, for all pages
-	//margin: 0 -25px; //TODO: this might not work in browsers without rems, as that's what the margins are that we're overcoming here.
-	//background-color: rgba(255, 255, 255, 0.24);
-	padding: 20px;
 }
 
 .home .main-navigation li a {
 	color: #fff !important;
-	@include font-size(3);
+	@include breakpoint(medium) {
+		@include font-size(2.6);
+	}
 }
 
 .home p {
 	color: #fff;
-	line-height: 2em;
-	@include font-size(2.4); //TODO: why won't pt sans let me have a lighter weight
+	line-height: 2.4em;
+	@include breakpoint(small) {
+		@include font-size(2.4); 
+	}
 }
 
 .home .pull-copy {
@@ -163,10 +156,9 @@ html {
 }
 
 
-//PORTFOLIO AND THOUGHTS ARCHIVE PAGES---------------------------------------------------------------
+//PORTFOLIO ARCHIVE PAGE---------------------------------------------------------------
 
-.post-type-archive-portfolio .article-wrapper,
-.blog .article-wrapper {
+.post-type-archive-portfolio .article-wrapper {
 	margin-bottom: 4%; //TODO: check all gaps on all screen sizes.
 	position: relative;
 	width: 100%;
@@ -193,8 +185,7 @@ html {
 	} */
 }
 
-.post-type-archive-portfolio article,
-.blog article {
+.post-type-archive-portfolio article {
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -322,29 +313,36 @@ html {
 	margin-top: 4%;
 }
 
-//TODO: responsive type
 
 //THOUGHTS PAGE---------------------------------------------------------------
-
-.blog article {
-	padding: 1em;
-	padding-bottom: 0;
-	margin-top: 1em;
-	background-color: lighten($color-thoughts, 50%);
-	//background: linear-gradient(to bottom left, #5776A8 0%,#783C82 100%);
-	a,
-	a:hover,
-	.entry-content,
-	button {
-		//color: #fff;
-		//border-color: #fff;
+.blog .article-wrapper {
+	background-color: lighten($color-thoughts, 53%);
+	margin-bottom: 4%;
+	width: 100%;
+	min-height: 375px;
+	text-align: left;
+	padding: 4%;
+	@include breakpoint(medium) {
+		width: 48%;
+		margin-right: 4%;
+		float: left;
+		&:nth-of-type(2n) {
+			margin-right: 0;
+		}
 	}
 }
 
-.blog .article-wrapper {
-	padding-bottom: 35%; //TODO: didn't work
-}
 
+
+//TODO: gzipping?
+//TODO: swap the photo of me around @content
+//TODO: write animating blend modes and three js articles @content
+//TODO: tidy ivanthered, finish fling and ftf @content
+//TODO: tidy github @content
+//TODO: responsive images? @content
+//TODO: write report @content
+//TODO: testing... mobile. its something in the js
+//TODO: review modernizr build during testing, anything to add or remove
 
 //CONTACT PAGE---------------------------------------------------------------
 
@@ -363,12 +361,18 @@ html {
 		display: block;
 		padding-top: 100%;
 	}
-	h2 {
+	p {
 		position: absolute;
 		top: 32%;
-		font-weight: 300;
+		font-family: $font__head;
 		@include font-size(2.4);
 		line-height: 1.8em;
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
@@ -380,97 +384,8 @@ html {
 	}
 	.page-id-9 .entry-content>p {
 		text-align: left;
-		&:first-of-type {
-			margin-top: 4%;
-		}
 	}
 
 }
 
-
-//TODO: everything under here is experimentation, needs to be tidied and organised. aka shame.scss
-//TODO: remove bootstrapgrid.scss file if not using it
-//TODO: need a default background for 404 and style guide pages for example
-
-
-/* .panel, .panel a, .panel a:visited {
-	background-color: #433D49;
-	color: #fff;
-} */
-
-.panel img {
-	margin: 1.5em 0 1em 0;
-}
-
-/* section a, section a:visited {
-	color: #433D49;
-	text-decoration: none;
-}
-
-section a:hover {
-	text-decoration: underline;
-	color: #433D49;
-} */
-
-/* section li {
-	border-bottom: 1px solid #433D49;
-} */
-
-/* .panel li {
-	border-bottom: 1px solid #fff;
-} */
-
-/* .panel li a:hover {
-	background: url('http://localhost:8888/portfolio/wp-content/uploads/2014/08/greenstone.jpg');
-} */
-
-section li:last-of-type {
-	border-bottom: none;
-}
-
-
-
-
-
-.test {
-	position: relative;
-float: left;
-width: 20%;
-}
-
-.wp-image-155 {
-/* 	position: absolute; */
-	width: 100%;
-	z-index: 1;
-}
-
-.wp-image-156 {
-	position: absolute;
-	animation: test 2s;
-	left: 25px;
-z-index: -1;
-width: 71%;
-top: 50px;
-}
-
-@keyframes test {
-    from {left: -900px;}
-    to {left: 0px;}
-}
-
-
-.triangle {
-	position: absolute;
-top: 106px;
-left: 384px;
-z-index: -1;
-animation: myfirst 2s;
-}
-
-//TODO: put a default header on all pages, to be overriden with page specific.
-
-.featured  {
-	margin: 0;
-	list-style: none; //TODO: why are these overriding themselves a bajillion times?
-}
 
