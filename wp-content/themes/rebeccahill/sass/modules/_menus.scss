@@ -74,7 +74,7 @@
 		border-bottom: 4px solid $color-pg;
 	}
 	.#{$class} .main-navigation li a:hover {
-		color: $color-pg !important;
+		color: $color-pg;
 	}
 }
 
@@ -88,9 +88,9 @@
 .main-navigation li a {
 	text-transform: uppercase;
 	@include font-size(2);
-	color: #fff !important; //TODO: oh god get rid of this, and the others above
+	color: #fff;
 	@include breakpoint(small) {
-		color: $color__text-main !important;
+		color: $color__text-main;
 		font-weight: 600;
 	}
 }
@@ -187,7 +187,7 @@
 	width: 50%;
 }
 
-.post-navigation {
+.nav-links {
 
 	.icon-arrow-left {
 		float: left;
@@ -203,5 +203,4 @@
 		margin-right: 20px;
 	}
 }
-	
-//TODO: make the contact form validation the same as the comment form validation
+

@@ -7,7 +7,7 @@
 
 //Vendor
 @import "vendor/reset";
-/* @import "vendor/flexgrid"; */
+@import "vendor/wpcf7";
 @import "vendor/bootstrap-grid";
 
 //Individual, smaller and consistent elements
@@ -29,5 +29,5 @@
 @import "modules/comments";
 @import "modules/media";
 @import "modules/forms";
-@import "modules/pages"; //aka "shame.scss", temporary placement before re-organising
+@import "modules/pages";
 

@@ -13,18 +13,18 @@
 		</header><!-- .entry-header -->
 	
 		<div class="entry-content">
+			<?php if(is_post_type_archive('portfolio')):?>
+				<a href="<?php the_permalink()?>">
+			<?php endif;?>
+
 			<?php the_excerpt(); ?>
-	
-	
-			<a href="<?php the_permalink()?>"><button>Read More</button></a>
-			
-			<!-- //TODO: check paging links -->
-			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'rebeccahill' ),
-					'after'  => '</div>',
-				) );
-			?>
+
+			<?php if(is_post_type_archive('post')):?>
+				<a href="<?php the_permalink()?>">
+			<?php endif;?>
+
+			<button>Read More</button>
+			</a>
 		</div><!-- .entry-content -->
 
 	<?php if (get_the_post_thumbnail()) : ?>
@@ -36,6 +36,3 @@
 	</article><!-- #post-## -->
 
 </div>
-<!-- 
-TODO: make sure whole projects box is clickable
--->

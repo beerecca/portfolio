@@ -32,12 +32,16 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<div class="clear">
+				
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', get_post_format() );?>
+					<?php get_template_part( 'content', get_post_format() );?>
 
-			<?php endwhile; ?>
-
+				<?php endwhile; ?>
+				
+			</div>
+			
 			<?php rebeccahill_paging_nav(); ?>
 
 		<?php else : ?>

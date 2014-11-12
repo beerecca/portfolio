@@ -15,7 +15,6 @@
 
 			<?php if (is_page('about')): ?>
 				<div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/acro.gif"></div>
-				<!-- <div id="image_rotate" class="me" data-src="<?php echo get_stylesheet_directory_uri();?>/img/dystopiangif.gif"></div> -->
 			<?php endif ?>
 
 		<?php the_content(); ?>

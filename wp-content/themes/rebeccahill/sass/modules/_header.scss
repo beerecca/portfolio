@@ -7,7 +7,7 @@ h1.site-title a:focus,
 h1.site-title a:active,
 h1.site-title a:hover {
 	border-bottom: 0;
-} //TODO: check dev tools, repeating weirdly. try removing the : and its fine. try &? try ordering this file below the type file?
+}
 
 .site-title {
 	margin: 1em auto;

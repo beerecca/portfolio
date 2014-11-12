@@ -35,7 +35,6 @@ textarea {
 p {
 	margin-bottom: 1.5em;
 }
-//TODO: ftf put messages about crappy bits on the actual site - eg Note there would normally have to be some filtering/moderation
 
 //Special kinds of copy
 
@@ -72,8 +71,6 @@ blockquote {
 @each $class, $color-pg in $themes {
 	@include blockquotes($class, $color-pg);
 }
-
-//TODO: finish joshuas and add those screenshots
 
 pre {
 	background: $color__background-pre;

@@ -102,7 +102,7 @@ wp_enqueue_script( 'typekit', '//use.typekit.net/euj7roz.js');
 
 function typekit_inline() {
 	  if ( wp_script_is( 'typekit', 'done' ) ) { ?>
-	    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<?php }
 }
 add_action( 'wp_head', 'typekit_inline' );
@@ -114,6 +114,7 @@ add_action( 'wp_head', 'typekit_inline' );
 //Also will need to visibility hide text until Typekit loads to prevent FOUT
 //Or until timeout happens and Typekit is unsuccessful
 //http://help.typekit.com/customer/portal/articles/6852
+//TODO: somethings obviously not right with typekit, getting fout. also loads messy
 
 /*function typekit_inline() {?>
 
@@ -137,9 +138,16 @@ function rebeccahill_scripts() {
 
 	wp_enqueue_style( 'rebeccahill-style', get_template_directory_uri() . '/style.min.css' );
 
+
+	if ( !is_admin() ) { 
+		wp_deregister_script('jquery'); 
+		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"), false);
+		wp_enqueue_script('jquery'); 
+	}
+
 	wp_enqueue_script( 'rebeccahill-js', get_template_directory_uri() . '/js/scripts.min.js', array(), false, true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_singular('post') && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
@@ -180,6 +188,7 @@ function codex_custom_init() {
       'public' => true,
       'label'  => 'Portfolio',
       'hierarchical' => true,
+      'rewrite' => array('with_front' => true),
       'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
       'has_archive' => true
     );
@@ -252,7 +261,7 @@ function portfolio_order( $query ) {
 add_action( 'pre_get_posts', 'portfolio_order' );
 
 
-
+//TODO: modernizr isnt going to work as its not in the head, does this matter, am i even using it?
 
 // The code below finds the menu item with the class "[CPT]-menu-item" and adds another “current_page_parent” class to it.
 // Furthermore, it removes the “current_page_parent” from the blog menu item, if this is present. 
@@ -278,3 +287,41 @@ function get_current_value( $element ) {
     return ( $element != "current_page_parent" );
 }
 
+
+
+//Remove Contact Form 7 JS and CSS (have minified and concatenated myself)
+add_filter( 'wpcf7_load_css', '__return_false' );
+add_filter( 'wpcf7_load_js', '__return_false' );
+
+
+
+//Remove stupid wordpress inline style for recent comments
+function remove_recent_comments_style() {
+	global $wp_widget_factory;
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+}
+add_action( 'widgets_init', 'remove_recent_comments_style' );
+
+
+
+//Add ajax commenting (better error handling) as per http://www.makeuseof.com/tag/ajaxify-wordpress-comments/
+add_action('comment_post', 'ajaxify_comments',20, 2);
+function ajaxify_comments($comment_ID, $comment_status){
+	if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+		//If AJAX Request Then
+		switch($comment_status){
+			case '0':
+			//notify moderator of unapproved comment
+			wp_notify_moderator($comment_ID);
+			case '1': //Approved comment
+			echo "success";
+			$commentdata=&get_comment($comment_ID, ARRAY_A);
+			$post=&get_post($commentdata['comment_post_ID']);
+			wp_notify_postauthor($comment_ID, $commentdata['comment_type']);
+			break;
+			default:
+			echo "error";
+		}
+		exit;
+	}
+}

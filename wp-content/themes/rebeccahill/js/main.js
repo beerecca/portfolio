@@ -101,8 +101,6 @@ var element = document.querySelector( '.me' );
 jQuery(document).ready(function($){
 
 //TODO: split into page specific scripts to be enqueued properly. also add to about the site. also refactor into var something = {init: ??}, something.init
-
-//TODO: minify contact form javascript :P check all outputs
 //TODO: spellcheck and check all links
 
 //Home Page Background
@@ -138,6 +136,40 @@ homeBackground();
 $(window).on('resize', homeBackground);
 
 
+
+
+
+//Ajaxing comments (better error handling) as per http://www.makeuseof.com/tag/ajaxify-wordpress-comments/
+
+var commentform=$('#commentform'); // find the comment form
+commentform.prepend('<div id="comment-status" ></div>'); // add info panel before the form to provide feedback or errors
+var statusdiv=$('#comment-status'); // define the infopanel
+
+commentform.submit(function(){
+  //serialize and store form data in a variable
+  var formdata=commentform.serialize();
+  //Add a status message
+  statusdiv.html('<p>Processing...</p>');
+  //Extract action URL from commentform
+  var formurl=commentform.attr('action');
+  //Post Form with data
+  $.ajax({
+    type: 'post',
+    url: formurl,
+    data: formdata,
+    error: function(XMLHttpRequest, textStatus, errorThrown){
+      statusdiv.html('<p class="feedback wdpajax-error" >Looks like you\'ve left one of the fields blank, please try again.</p>');
+    },
+    success: function(data, textStatus){
+      if(data=="success")
+        statusdiv.html('<p class="feedback ajax-success" >Thanks for your comment! I\'ll moderate and publish it asap.</p>');
+      else
+        statusdiv.html('<p class="feedback ajax-error" >Please wait a while before posting your next comment, thanks.</p>');
+        commentform.find('textarea[name=comment]').val('');
+    }
+  });
+  return false;
+});
 
 
 //TODO: fix comments in this js file, also this isn't working on resize properly. somehow reinitiliaze skrollr on resize?
@@ -184,13 +216,13 @@ $(window).on('resize', function(){
     var image_src = { 
         front: "background-position: 0px 0px",
         bottom: "background-position: 0px "+-currentWidth+"px",
-        bottomLeft: "background-position: 0px "+-2*currentWidth+"px",
-        left: "background-position: 0px "+-3*currentWidth+"px",
-        topLeft: "background-position: 0px "+-4*currentWidth+"px",
+        bottomRight: "background-position: 0px "+-2*currentWidth+"px",
+        right: "background-position: 0px "+-3*currentWidth+"px",
+        topRight: "background-position: 0px "+-4*currentWidth+"px",
         top: "background-position: 0px "+-5*currentWidth+"px",
-        topRight: "background-position: 0px "+-6*currentWidth+"px",
-        right: "background-position: 0px "+-7*currentWidth+"px",
-        bottomRight: "background-position: 0px "+-8*currentWidth+"px"
+        topLeft: "background-position: 0px "+-6*currentWidth+"px",
+        left: "background-position: 0px "+-7*currentWidth+"px",
+        bottomLeft: "background-position: 0px "+-8*currentWidth+"px"
     };
 
     var location = {

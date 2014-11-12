@@ -67,5 +67,19 @@ span.wpcf7-not-valid-tip {
 div.wpcf7-validation-errors,
 div.wpcf7-mail-sent-ok {
 	border: none;
-	background-color: $color-neutral;
+	color: $color-contact;
+	background-color: lighten($color-contact, 30%);
+}
+
+div.wpcf7-response-output {
+	margin-top: 0;
+}
+
+.wpcf7 .ajax-loader {
+	display: none;
+}
+
+.feedback {
+	color: $color-thoughts;
+	background-color: lighten($color-thoughts, 53%);
 }

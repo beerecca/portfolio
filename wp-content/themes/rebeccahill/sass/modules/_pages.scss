@@ -24,7 +24,7 @@ html {
 .entry-content,
 .entry-summary,
 .screenshots {
-	margin: 0.5em 0 0; //TODO: don't change, needs to be there for portfolio hovers
+	margin: 0.5em 0 0; //don't change, needs to be there for portfolio hovers
 }
 
 .page-links {
@@ -159,7 +159,7 @@ html {
 //PORTFOLIO ARCHIVE PAGE---------------------------------------------------------------
 
 .post-type-archive-portfolio .article-wrapper {
-	margin-bottom: 4%; //TODO: check all gaps on all screen sizes.
+	margin-bottom: 4%;
 	position: relative;
 	width: 100%;
 	padding-bottom: 100%;
@@ -220,11 +220,23 @@ html {
 		color: #fff;
 		line-height: 1.5em;
 	}
+	a {
+		text-decoration: none;
+	}
 	button {
 		border-color: #fff;
 		color: #fff;
 	}
+	@include breakpoint(xlarge) {
+		.entry-title {
+			@include font-size(3.5);
+		}
+		p {
+			@include font-size(2.2);
+		}
+	}
 }
+
 
 
 
@@ -240,6 +252,7 @@ html {
 		position: absolute;
 		transition: top 0.6s;
 		z-index: 10;
+		width: 84%;
 	}
 
 	.entry-content {
@@ -265,16 +278,11 @@ html {
 		top: 7%;
 	}
 	.entry-content {
-		top: 21%;
+		top: 16%;
 	}
 	.thumb {
 		width: 120%; //Despite adobe blog saying you can't animate content that has a blend mode on it, this works! Wasn't working when it was a bg image.
 	}
-}
-
-//For items with titles that go onto two lines
-.post-type-archive-portfolio .post-47:hover .entry-content {
-	top: 32%;
 }
 
 //TODO: write an article re blend modes. listing gotchas. stacking contexts also relevant :P isolate etc for text.
@@ -322,6 +330,9 @@ html {
 	min-height: 375px;
 	text-align: left;
 	padding: 4%;
+	a {
+		text-decoration: none;
+	}
 	@include breakpoint(medium) {
 		width: 48%;
 		margin-right: 4%;
@@ -335,7 +346,6 @@ html {
 
 
 //TODO: gzipping?
-//TODO: swap the photo of me around @content
 //TODO: write animating blend modes and three js articles @content
 //TODO: tidy ivanthered, finish fling and ftf @content
 //TODO: tidy github @content
