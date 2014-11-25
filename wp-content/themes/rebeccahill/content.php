@@ -2,6 +2,10 @@
 /**
  * @package Rebecca Hill
  */
+
+//Thumbnail Image
+$thumbArray = wp_get_attachment_image_src(get_post_thumbnail_id(),'large');
+$thumb = $thumbArray[0];
 ?>
 
 <div class="article-wrapper">
@@ -28,8 +32,8 @@
 		</div><!-- .entry-content -->
 
 	<?php if (get_the_post_thumbnail()) : ?>
-		<a href="<?php the_permalink()?>">
-			<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(),'large')[0]?>" class="thumb" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)?>">
+		<a href="<?php the_permalink();?>">
+			<img src="<?php echo $thumb; ?>" class="thumb" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)?>">
 		</a>
 	<?php endif;?>
 

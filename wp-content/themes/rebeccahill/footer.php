@@ -22,5 +22,9 @@
 
 <?php wp_footer(); ?>
 
+<?php if(is_singular('portfolio')):?>
+	</div><!-- Needed for skrollr on mobile -->
+<?php endif;?>
+
 </body>
 </html>

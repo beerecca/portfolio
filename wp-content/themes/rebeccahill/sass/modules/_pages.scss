@@ -77,7 +77,7 @@ html {
 }
 
 .home .main-navigation li a {
-	color: #fff !important;
+	color: #fff;
 	@include breakpoint(medium) {
 		@include font-size(2.6);
 	}
@@ -271,21 +271,21 @@ html {
 	}
 }
 
-.post-type-archive-portfolio article:hover {
-	background: linear-gradient(to bottom, #3E6D99 10%, #19396C 90%);
-	
-	.entry-header {
-		top: 7%;
-	}
-	.entry-content {
-		top: 16%;
-	}
-	.thumb {
-		width: 120%; //Despite adobe blog saying you can't animate content that has a blend mode on it, this works! Wasn't working when it was a bg image.
+@include breakpoint(small) { 
+	.post-type-archive-portfolio article:hover {
+		background: linear-gradient(to bottom, #3E6D99 10%, #19396C 90%);
+		
+		.entry-header {
+			top: 7%;
+		}
+		.entry-content {
+			top: 16%;
+		}
+		.thumb {
+			width: 120%; //Despite adobe blog saying you can't animate content that has a blend mode on it, this works! Wasn't working when it was a bg image.
+		}
 	}
 }
-
-//TODO: write an article re blend modes. listing gotchas. stacking contexts also relevant :P isolate etc for text.
 
 
 //PORTFOLIO DETAIL PAGE---------------------------------------------------------------
@@ -318,7 +318,7 @@ html {
 	height: 62%;
 	width: 100%;
 	max-width: 800px;
-	margin-top: 4%;
+	margin-top: 3.5%;
 }
 
 
@@ -346,7 +346,7 @@ html {
 
 
 //TODO: gzipping?
-//TODO: write animating blend modes and three js articles @content
+//TODO: write animating blend modes (stacking contexts, isolate etc for text, check pages.scss) and three js articles @content
 //TODO: tidy ivanthered, finish fling and ftf @content
 //TODO: tidy github @content
 //TODO: responsive images? @content

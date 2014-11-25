@@ -29,6 +29,10 @@
 
 <body <?php body_class(); ?>>
 
+<?php if(is_singular('portfolio')):?>
+	<div id="skrollr-body"><!-- Needed for skrollr on mobile -->
+<?php endif;?>
+
 <div id="page" class="hfeed site container-fluid">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rebeccahill' ); ?></a>
 

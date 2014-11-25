@@ -1,6 +1,5 @@
 <?php
 /**
- * Rebecca Hill functions and definitions
  *
  * @package Rebecca Hill
  */
@@ -138,7 +137,6 @@ function rebeccahill_scripts() {
 
 	wp_enqueue_style( 'rebeccahill-style', get_template_directory_uri() . '/style.min.css' );
 
-
 	if ( !is_admin() ) { 
 		wp_deregister_script('jquery'); 
 		wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"), false);
@@ -152,11 +150,6 @@ function rebeccahill_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rebeccahill_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -250,15 +243,48 @@ function url_filtered($fields)
  */
 
 add_post_type_support( 'post', 'page-attributes' );
-
+add_post_type_support( 'portfolio', 'page-attributes' );
 
 function portfolio_order( $query ) {
-    if ( $query->is_post_type_archive('portfolio') && $query->is_main_query() ) {
+    if ( $query->is_main_query() ) {
         $query->set( 'orderby', 'menu_order' );
         $query->set( 'order', 'ASC' );
     }
 }
 add_action( 'pre_get_posts', 'portfolio_order' );
+
+
+/**
+ * Fixing the next prev links order as per https://gist.github.com/hissy/3613306
+ */
+
+function rh_adjacent_post_where($sql) {
+  if ( !is_main_query() || !is_singular() )
+    return $sql;
+
+  $the_post = get_post( get_the_ID() );
+  $patterns = array();
+  $patterns[] = '/post_date/';
+  $patterns[] = '/\'[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}\'/';
+  $replacements = array();
+  $replacements[] = 'menu_order';
+  $replacements[] = $the_post->menu_order;
+  return preg_replace( $patterns, $replacements, $sql );
+}
+add_filter( 'get_next_post_where', 'rh_adjacent_post_where' );
+add_filter( 'get_previous_post_where', 'rh_adjacent_post_where' );
+
+function rh_adjacent_post_sort($sql) {
+  if ( !is_main_query() || !is_singular() )
+    return $sql;
+
+  $pattern = '/post_date/';
+  $replacement = 'menu_order';
+  return preg_replace( $pattern, $replacement, $sql );
+}
+add_filter( 'get_next_post_sort', 'rh_adjacent_post_sort' );
+add_filter( 'get_previous_post_sort', 'rh_adjacent_post_sort' );
+
 
 
 //TODO: modernizr isnt going to work as its not in the head, does this matter, am i even using it?
